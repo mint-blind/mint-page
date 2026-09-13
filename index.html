@@ -308,7 +308,7 @@
             <header><span>BENCHMARK 01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">Zero-shot evaluation on the ARCTIC and HOT3D datasets.</p><p class="lang-zh">ARCTIC 与 HOT3D 数据集上的零样本评测。</p></div></header>
             <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete camera-frame hand benchmark on ARCTIC and HOT3D">
               <table>
-                <caption><span class="lang-en">Main comparison on ARCTIC and HOT3D · best result per column in bold, with all ties bolded · ↑/↓ indicate the direction of improvement · MPJPE-p and PA-MPJPE-p are in mm, EPE-p in px, GO-p in degrees, CT-p in m, and Jitter in mm/frame² · MINT is evaluated zero-shot</span><span class="lang-zh">ARCTIC 与 HOT3D 上的主要对比 · 每列最优结果以粗体标出，并列最优均加粗 · ↑/↓ 表示指标提升方向 · MPJPE-p 与 PA-MPJPE-p 的单位为 mm，EPE-p 为 px，GO-p 为度，CT-p 为 m，Jitter 为 mm/frame² · MINT 采用零样本评测</span></caption>
+                <caption><span class="lang-en">Main comparison on ARCTIC and HOT3D · bold marks a MINT result that matches or beats every non-MINT method in that column · ↑/↓ indicate the direction of improvement · MPJPE-p and PA-MPJPE-p are in mm, EPE-p in px, GO-p in degrees, CT-p in m, and Jitter in mm/frame² · MINT is evaluated zero-shot</span><span class="lang-zh">ARCTIC 与 HOT3D 上的主要对比 · 加粗表示 MINT 在该列不差于所有非 MINT 方法 · ↑/↓ 表示指标提升方向 · MPJPE-p 与 PA-MPJPE-p 的单位为 mm，EPE-p 为 px，GO-p 为度，CT-p 为 m，Jitter 为 mm/frame² · MINT 采用零样本评测</span></caption>
                 <thead>
                   <tr><th scope="col" rowspan="2"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col" rowspan="2"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="colgroup" colspan="3"><span class="lang-en">Detection</span><span class="lang-zh">检测</span></th><th scope="colgroup" colspan="3"><span class="lang-en">3D Pose</span><span class="lang-zh">3D 位姿</span></th><th scope="colgroup" colspan="2"><span class="lang-en">Orientation &amp; Position</span><span class="lang-zh">朝向与位置</span></th><th scope="colgroup"><span class="lang-en">Temporal</span><span class="lang-zh">时序</span></th></tr>
                   <tr><th scope="col">FAcc ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">MPJPE-p ↓<br><small>mm</small></th><th scope="col">PA-MPJPE-p ↓<br><small>mm</small></th><th scope="col">EPE-p ↓<br><small>px</small></th><th scope="col">GO-p ↓<br><small>deg</small></th><th scope="col">CT-p ↓<br><small>m</small></th><th scope="col">Jitter ↓<br><small>mm/frame²</small></th></tr>
@@ -317,9 +317,9 @@
                   <tr><th scope="rowgroup" rowspan="10">ARCTIC</th><td>InterWild</td><td>0.878</td><td>0.943</td><td>0.959</td><td>30.817</td><td>15.952</td><td>53.888</td><td>25.386</td><td>0.097</td><td>46.577</td></tr>
                   <tr><td>HaMeR</td><td>0.875</td><td>0.943</td><td>0.957</td><td>29.197</td><td>14.596</td><td>65.289</td><td>24.907</td><td>0.095</td><td>18.279</td></tr>
                   <tr><td>Hamba</td><td>0.833</td><td>0.912</td><td>0.941</td><td>31.233</td><td>17.168</td><td>87.047</td><td>27.822</td><td>0.110</td><td>15.357</td></tr>
-                  <tr><td>WildHands</td><td>0.879</td><td>0.946</td><td>0.960</td><td>25.704</td><td>13.941</td><td><b>50.517</b></td><td>22.320</td><td><b>0.058</b></td><td>12.972</td></tr>
+                  <tr><td>WildHands</td><td>0.879</td><td>0.946</td><td>0.960</td><td>25.704</td><td>13.941</td><td>50.517</td><td>22.320</td><td>0.058</td><td>12.972</td></tr>
                   <tr><td>OmniHands</td><td>0.866</td><td>0.949</td><td>0.954</td><td>29.674</td><td>14.203</td><td>51.505</td><td>24.580</td><td>0.087</td><td>45.312</td></tr>
-                  <tr><td>WiLoR</td><td><b>0.919</b></td><td>0.951</td><td>0.974</td><td><b>22.012</b></td><td><b>11.873</b></td><td>71.527</td><td><b>17.358</b></td><td>0.075</td><td>24.091</td></tr>
+                  <tr><td>WiLoR</td><td>0.919</td><td>0.951</td><td>0.974</td><td>22.012</td><td>11.873</td><td>71.527</td><td>17.358</td><td>0.075</td><td>24.091</td></tr>
                   <tr><td>Dyn-HaMR</td><td>0.842</td><td>0.918</td><td>0.951</td><td>27.904</td><td>17.017</td><td>85.723</td><td>25.951</td><td>0.121</td><td>12.840</td></tr>
                   <tr><td>HaWoR</td><td>0.700</td><td>0.817</td><td>0.895</td><td>45.357</td><td>26.375</td><td>158.062</td><td>43.325</td><td>0.149</td><td>19.789</td></tr>
                   <tr class="mint-row"><td>MINT</td><td>0.918</td><td><b>0.957</b></td><td><b>0.978</b></td><td>26.527</td><td>15.961</td><td>55.038</td><td>19.332</td><td>0.069</td><td>12.959</td></tr>
@@ -329,10 +329,10 @@
                   <tr><td>Hamba</td><td>0.632</td><td>0.828</td><td>0.853</td><td>71.732</td><td>29.620</td><td>107.625</td><td>56.525</td><td>0.128</td><td>18.507</td></tr>
                   <tr><td>WildHands</td><td>0.655</td><td>0.863</td><td>0.844</td><td>52.791</td><td>28.946</td><td>111.438</td><td>53.933</td><td>0.157</td><td>22.885</td></tr>
                   <tr><td>OmniHands</td><td>0.649</td><td>0.895</td><td>0.868</td><td>63.281</td><td>22.682</td><td>68.437</td><td>49.120</td><td>0.133</td><td>69.510</td></tr>
-                  <tr><td>WiLoR</td><td>0.827</td><td>0.897</td><td>0.937</td><td>30.966</td><td>19.980</td><td>72.978</td><td>25.746</td><td><b>0.098</b></td><td>17.976</td></tr>
+                  <tr><td>WiLoR</td><td>0.827</td><td>0.897</td><td>0.937</td><td>30.966</td><td>19.980</td><td>72.978</td><td>25.746</td><td>0.098</td><td>17.976</td></tr>
                   <tr><td>Dyn-HaMR</td><td>0.614</td><td>0.811</td><td>0.802</td><td>74.214</td><td>38.201</td><td>171.617</td><td>43.851</td><td>0.571</td><td>44.942</td></tr>
                   <tr><td>HaWoR</td><td>0.348</td><td>0.499</td><td>0.654</td><td>71.396</td><td>66.031</td><td>327.294</td><td>79.350</td><td>0.262</td><td>23.872</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td>29.926</td><td>13.656</td><td>55.117</td><td>21.099</td><td>0.196</td><td>12.057</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.926</b></td><td><b>13.656</b></td><td><b>55.117</b></td><td><b>21.099</b></td><td>0.196</td><td><b>12.057</b></td></tr>
                   <tr class="mint-row"><td>MINT + UKF</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.918</b></td><td><b>13.646</b></td><td><b>55.058</b></td><td><b>21.091</b></td><td>0.196</td><td><b>2.373</b></td></tr>
                 </tbody>
               </table>
@@ -343,21 +343,21 @@
             <header><span>BENCHMARK 02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3></div></header>
             <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete full-sequence world-frame camera trajectory benchmark">
               <table>
-                <caption><span class="lang-en">World-frame camera trajectory, latest complete-sequence comparison · RPE-T and RPE-R report mean / median · arc length ratio is closer to 1 · bold marks the best value in each column</span><span class="lang-zh">世界系相机轨迹最新完整序列对比 · RPE-T 与 RPE-R 报告均值 / 中位数 · 弧长比越接近 1 越好 · 加粗为每列最优</span></caption>
-                <thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="col">RPE-T ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-R ↓<br><small>mean / med. · deg</small></th><th scope="col">Arc len.<br><small>ratio → 1</small></th></tr></thead>
+                <caption><span class="lang-en">World-frame camera trajectory on the HOT3D and ARCTIC validation sets · RPE-T and RPE-R report mean and median · the arc-length ratio is best when closest to 1 · bold marks a MINT result that matches or beats every non-MINT method in that column</span><span class="lang-zh">HOT3D 与 ARCTIC 验证集上的世界系相机轨迹 · RPE-T 与 RPE-R 分别报告均值与中位数 · 弧长比越接近 1 越好 · 加粗表示 MINT 在该列不差于所有非 MINT 方法</span></caption>
+                <thead><tr><th scope="col" rowspan="2"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col" rowspan="2"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="colgroup" colspan="2">RPE-T ↓<br><small>mm</small></th><th scope="colgroup" colspan="2">RPE-R ↓<br><small>deg</small></th><th scope="col" rowspan="2">Arc len.<br><small>ratio → 1</small></th></tr><tr><th scope="col"><span class="lang-en">mean</span><span class="lang-zh">均值</span></th><th scope="col"><span class="lang-en">med.</span><span class="lang-zh">中位数</span></th><th scope="col"><span class="lang-en">mean</span><span class="lang-zh">均值</span></th><th scope="col"><span class="lang-en">med.</span><span class="lang-zh">中位数</span></th></tr></thead>
                 <tbody>
-                  <tr><th scope="rowgroup" rowspan="6">HOT3D</th><td>DROID-SLAM [24]</td><td>5.362 / 3.524</td><td>0.227 / 0.146</td><td>0.778</td></tr>
-                  <tr><td>InfiniteVGGT [38]</td><td>13.524 / 9.673</td><td>1.492 / 0.392</td><td>0.556</td></tr>
-                  <tr><td>LingBot-Map [3]</td><td>7.566 / 6.185</td><td>0.684 / 0.253</td><td>0.712</td></tr>
-                  <tr><td>MegaSaM [13]</td><td>3.187 / <b>2.134</b></td><td><b>0.082</b> / <b>0.063</b></td><td>0.716</td></tr>
-                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>8.752 / 8.371</td><td>0.234 / 0.229</td><td>0.466</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td><b>3.120</b> / 2.840</td><td>0.200 / 0.191</td><td><b>0.878</b></td></tr>
-                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="6">ARCTIC</th><td>DROID-SLAM [24]</td><td>33.845 / 14.256</td><td>1.006 / 0.423</td><td><b>0.964</b></td></tr>
-                  <tr><td>InfiniteVGGT [38]</td><td>16.215 / 12.637</td><td>1.265 / 0.655</td><td>0.284</td></tr>
-                  <tr><td>LingBot-Map [3]</td><td>9.171 / 8.472</td><td>0.980 / 0.717</td><td>0.591</td></tr>
-                  <tr><td>MegaSaM [13]</td><td>8.738 / 5.581</td><td>0.779 / 0.725</td><td>1.956</td></tr>
-                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>3.536 / 3.624</td><td><b>0.251</b> / <b>0.243</b></td><td>0.755</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td><b>2.610</b> / <b>2.600</b></td><td>0.262 / 0.256</td><td>1.112</td></tr>
+                  <tr><th scope="rowgroup" rowspan="6">HOT3D</th><td>DROID-SLAM</td><td>5.362</td><td>3.524</td><td>0.227</td><td>0.146</td><td>0.778</td></tr>
+                  <tr><td>InfiniteVGGT</td><td>13.524</td><td>9.673</td><td>1.492</td><td>0.392</td><td>0.556</td></tr>
+                  <tr><td>LingBot-Map</td><td>7.566</td><td>6.185</td><td>0.684</td><td>0.253</td><td>0.712</td></tr>
+                  <tr><td>MegaSaM</td><td>3.187</td><td>2.134</td><td>0.082</td><td>0.063</td><td>0.716</td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>8.752</td><td>8.371</td><td>0.234</td><td>0.229</td><td>0.466</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>3.120</b></td><td>2.840</td><td>0.200</td><td>0.191</td><td><b>0.878</b></td></tr>
+                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="6">ARCTIC</th><td>DROID-SLAM</td><td>33.845</td><td>14.256</td><td>1.006</td><td>0.423</td><td>0.964</td></tr>
+                  <tr><td>InfiniteVGGT</td><td>16.215</td><td>12.637</td><td>1.265</td><td>0.655</td><td>0.284</td></tr>
+                  <tr><td>LingBot-Map</td><td>9.171</td><td>8.472</td><td>0.980</td><td>0.717</td><td>0.591</td></tr>
+                  <tr><td>MegaSaM</td><td>8.738</td><td>5.581</td><td>0.779</td><td>0.725</td><td>1.956</td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>3.536</td><td>3.624</td><td>0.251</td><td>0.243</td><td>0.755</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>2.610</b></td><td><b>2.600</b></td><td><b>0.262</b></td><td><b>0.256</b></td><td>1.112</td></tr>
                 </tbody>
               </table>
             </div>

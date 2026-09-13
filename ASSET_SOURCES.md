@@ -27,14 +27,19 @@ Source: the manuscript's own figure set
 ## Project film
 
 Source: the anonymous cut of the project film, 1920 x 1080 at 30 fps, 133.434
-seconds. It is the open cut frame for frame except for two shots: the title
-card (00:12.033-00:19.633) names no author or institution, and the closing
-page (02:05.433-02:13.433) promises the release instead of listing its four
-destinations. The benchmark portions at 01:37.433-01:53.433 are regenerated
-from the latest hand and HOT3D trajectory tables while preserving the original
-timing and soundtrack. `assets/media/mint-film-compact.mp4` is the updated CRF
-23 encode (31.1 MB), and `assets/media/mint-film-720p.webm` is the VP9 fallback
-(19.3 MB).
+seconds. It follows the open cut apart from two anonymity shots and the
+refreshed benchmark graphics. The title card (00:12.033-00:19.633) names no
+author or institution, and the closing page (02:05.433-02:13.433) promises the
+release instead of listing its four destinations. The benchmark summary at
+01:31.433-01:38.432 and detailed tables
+at 01:38.433-01:54.432 are regenerated from the latest hand and ARCTIC
+trajectory tables while preserving the original timing and soundtrack. The
+reusable layers come from `tools/render_benchmark_video_layers.py`.
+The second-stage refinement card at 00:53.233-01:00.233 reports RPE-T mean
+`3.536 -> 2.510`, RPE-T median `3.624 -> 2.600`, and arc-length ratio
+`0.755 -> 1.112`.
+`assets/media/mint-film-compact.mp4` is the updated CRF 23 encode (30.9 MiB),
+and `assets/media/mint-film-720p.webm` is the 720p VP9 fallback (17.6 MiB).
 
 | Website asset | Source interval or frame |
 | --- | --- |
@@ -50,8 +55,8 @@ timing and soundtrack. `assets/media/mint-film-compact.mp4` is the updated CRF
 | `assets/media/feature-speed-poster.webp` | 02:00.000 frame |
 | `assets/media/benchmark-hands.*` | 01:37.433-01:45.433, updated camera-frame hand benchmark segment |
 | `assets/media/benchmark-hands-poster.webp` | Updated hand-table frame |
-| `assets/media/benchmark-camera.*` | 01:45.433-01:53.433, updated HOT3D camera-trajectory benchmark segment |
-| `assets/media/benchmark-camera-poster.webp` | Updated HOT3D trajectory-table frame |
+| `assets/media/benchmark-camera.*` | 01:45.433-01:53.433, updated ARCTIC camera-trajectory benchmark segment |
+| `assets/media/benchmark-camera-poster.webp` | Updated ARCTIC trajectory-table frame |
 
 The feature wildcard denotes the `.mp4` and `.webm` versions of the same cut.
 The benchmark wildcard follows the same convention. No repository screenshots,
@@ -169,13 +174,14 @@ seconds.
 
 The camera-frame hand values and camera-trajectory values are transcribed from
 the latest MINT manuscript tables. The benchmark videos listed above use the
-same updated hand table and HOT3D trajectory values.
+same updated hand table and the ARCTIC trajectory rows, omitting the ablation
+row and method citation numbers from the video for readability. The complete
+HTML table retains both.
 
 The camera-frame hand table in the `#results` section is transcribed from Table
 1 of the latest MINT manuscript (10 methods per dataset). The camera-trajectory
 table uses the latest RPE-T / RPE-R / arc-length comparison (6 methods per
 dataset).
-Bold marks the best value per column within each dataset; MINT is also bold when
-it beats every non-MINT method, even if MINT + UKF is slightly better. `MegaSaM†`
-runs without depth refinement. The homepage omits the camera-trajectory sequence
-coverage column.
+Bold marks the best value per column within each dataset, with all ties bolded.
+`MegaSaM†` runs without depth refinement. The homepage omits the
+camera-trajectory sequence coverage column.

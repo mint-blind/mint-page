@@ -1,9 +1,9 @@
 # What this build removes
 
 This is the anonymous build of the MINT project page, for double-blind review.
-It is the open build with the identifying surface removed; every technical
-claim, number, figure, and video case is unchanged, so the two builds can be
-diffed against each other.
+It is the open build with the identifying surface removed and the benchmark
+graphics refreshed from the latest manuscript tables. All other technical
+claims, figures, and video cases are unchanged.
 
 ## Page content
 
@@ -30,8 +30,9 @@ submission system, so no PDF ships here at all rather than a redacted one.
 ## Project film
 
 `assets/media/mint-film-compact.mp4` and `mint-film-720p.webm` are the
-anonymous cut. It is the open cut frame for frame apart from two shots, both
-re-rendered from the same code with the same typography and timing:
+anonymous cut. It follows the open cut apart from two anonymity shots and the
+refreshed benchmark graphics. The anonymity shots are re-rendered from the same
+code with the same typography and timing:
 
 - **Title card, 00:12.033-00:19.633** — the credit block reads `Anonymous
   Authors` over `Paper under double-blind review` in place of the seven names
@@ -40,10 +41,14 @@ re-rendered from the same code with the same typography and timing:
   be open.` and the four destination rows read `released upon acceptance` in
   place of the project page, repository, model, and dataset URLs.
 
+The benchmark summary (01:31.433-01:38.432) and detailed-table shots
+(01:38.433-01:54.432) use the latest manuscript values. Their reusable layers
+come from `tools/render_benchmark_video_layers.py`.
+
 No other shot in the film carries a name, a logo, or a URL. The derived clips
 on the page (`feature-*`, `benchmark-*`) are cut from intervals that do not
-overlap either shot, and `film-poster.webp` is sampled at 00:14.500, before the
-credit block fades in, so it is identical in both builds.
+overlap either anonymity shot, and `film-poster.webp` is sampled at 00:14.500,
+before the credit block fades in, so it is identical in both builds.
 
-Both files were re-encoded at the same time: 69.1 MB → 37.6 MB for the MP4 at
-CRF 23, and 13.1 MB → 12.3 MB for the VP9 fallback.
+Both complete-film assets come from the same refreshed anonymous master: the
+CRF 23 MP4 is 30.9 MiB and the 720p VP9 fallback is 17.6 MiB.

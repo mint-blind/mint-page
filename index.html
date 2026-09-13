@@ -25,7 +25,7 @@
         "associatedMedia": {
           "@type": "VideoObject",
           "name": "MINT project film",
-          "contentUrl": "assets/media/mint-film-compact.mp4?v=20",
+          "contentUrl": "assets/media/mint-film-compact.mp4?v=21",
           "thumbnailUrl": "assets/media/film-poster.webp"
         }
       }
@@ -82,7 +82,7 @@
 
         <section class="project-film section-shell" id="film" aria-label="MINT film">
           <figure class="main-film">
-            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4?v=20" type="video/mp4"><source src="assets/media/mint-film-720p.webm?v=20" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4?v=20">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4?v=20">下载影片。</a></p></video></div>
+            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4?v=21" type="video/mp4"><source src="assets/media/mint-film-720p.webm?v=21" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4?v=21">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4?v=21">下载影片。</a></p></video></div>
           </figure>
           <nav class="film-chapters" aria-label="Film chapters">
             <button type="button" class="is-active" data-chapter data-time="0"><b>00:00</b><span class="lang-en">In the wild</span><span class="lang-zh">真实场景</span></button>
@@ -308,7 +308,7 @@
             <header><span>BENCHMARK 01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">Zero-shot evaluation on the ARCTIC and HOT3D datasets.</p><p class="lang-zh">ARCTIC 与 HOT3D 数据集上的零样本评测。</p></div></header>
             <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete camera-frame hand benchmark on ARCTIC and HOT3D">
               <table>
-                <caption><span class="lang-en">Main comparison on ARCTIC and HOT3D · best result per column in bold, with MINT also bold when it outperforms every non-MINT method · ↑/↓ indicate the direction of improvement · MPJPE-p and PA-MPJPE-p are in mm, EPE-p in px, GO-p in degrees, CT-p in m, and Jitter in mm/frame² · MINT is evaluated zero-shot</span><span class="lang-zh">ARCTIC 与 HOT3D 上的主要对比 · 每列最优结果以粗体标出；当 MINT 优于所有非 MINT 方法时，其结果也加粗 · ↑/↓ 表示指标提升方向 · MPJPE-p 与 PA-MPJPE-p 的单位为 mm，EPE-p 为 px，GO-p 为度，CT-p 为 m，Jitter 为 mm/frame² · MINT 采用零样本评测</span></caption>
+                <caption><span class="lang-en">Main comparison on ARCTIC and HOT3D · best result per column in bold, with all ties bolded · ↑/↓ indicate the direction of improvement · MPJPE-p and PA-MPJPE-p are in mm, EPE-p in px, GO-p in degrees, CT-p in m, and Jitter in mm/frame² · MINT is evaluated zero-shot</span><span class="lang-zh">ARCTIC 与 HOT3D 上的主要对比 · 每列最优结果以粗体标出，并列最优均加粗 · ↑/↓ 表示指标提升方向 · MPJPE-p 与 PA-MPJPE-p 的单位为 mm，EPE-p 为 px，GO-p 为度，CT-p 为 m，Jitter 为 mm/frame² · MINT 采用零样本评测</span></caption>
                 <thead>
                   <tr><th scope="col" rowspan="2"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col" rowspan="2"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="colgroup" colspan="3"><span class="lang-en">Detection</span><span class="lang-zh">检测</span></th><th scope="colgroup" colspan="3"><span class="lang-en">3D Pose</span><span class="lang-zh">3D 位姿</span></th><th scope="colgroup" colspan="2"><span class="lang-en">Orientation &amp; Position</span><span class="lang-zh">朝向与位置</span></th><th scope="colgroup"><span class="lang-en">Temporal</span><span class="lang-zh">时序</span></th></tr>
                   <tr><th scope="col">FAcc ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">MPJPE-p ↓<br><small>mm</small></th><th scope="col">PA-MPJPE-p ↓<br><small>mm</small></th><th scope="col">EPE-p ↓<br><small>px</small></th><th scope="col">GO-p ↓<br><small>deg</small></th><th scope="col">CT-p ↓<br><small>m</small></th><th scope="col">Jitter ↓<br><small>mm/frame²</small></th></tr>
@@ -332,7 +332,7 @@
                   <tr><td>WiLoR</td><td>0.827</td><td>0.897</td><td>0.937</td><td>30.966</td><td>19.980</td><td>72.978</td><td>25.746</td><td><b>0.098</b></td><td>17.976</td></tr>
                   <tr><td>Dyn-HaMR</td><td>0.614</td><td>0.811</td><td>0.802</td><td>74.214</td><td>38.201</td><td>171.617</td><td>43.851</td><td>0.571</td><td>44.942</td></tr>
                   <tr><td>HaWoR</td><td>0.348</td><td>0.499</td><td>0.654</td><td>71.396</td><td>66.031</td><td>327.294</td><td>79.350</td><td>0.262</td><td>23.872</td></tr>
-                  <tr class="mint-row"><td>MINT</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.926</b></td><td><b>13.656</b></td><td><b>55.117</b></td><td><b>21.099</b></td><td>0.196</td><td><b>12.057</b></td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td>29.926</td><td>13.656</td><td>55.117</td><td>21.099</td><td>0.196</td><td>12.057</td></tr>
                   <tr class="mint-row"><td>MINT + UKF</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.918</b></td><td><b>13.646</b></td><td><b>55.058</b></td><td><b>21.091</b></td><td>0.196</td><td><b>2.373</b></td></tr>
                 </tbody>
               </table>

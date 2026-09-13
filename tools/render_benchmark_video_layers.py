@@ -97,7 +97,7 @@ def draw_hand_content() -> Image.Image:
     ]
     highlights = {
         "WiLoR": {7},
-        "MINT": {0, 1, 2, 3, 4, 5, 6, 8},
+        "MINT": {0, 1, 2},
         "MINT + UKF": {0, 1, 2, 3, 4, 5, 6, 8},
     }
     row_centers = [334 + 56 * index for index in range(len(rows))]
@@ -122,8 +122,7 @@ def draw_hand_content() -> Image.Image:
 
     draw.text(
         (110, 1012),
-        "MINT is evaluated zero-shot. Best values are bold; MINT is also bold "
-        "when it beats every non-MINT method.",
+        "MINT is evaluated zero-shot. Best values are bold; ties are all bolded.",
         font=FOOTNOTE_FONT,
         fill=(102, 102, 102, 255),
         anchor="lm",
@@ -137,7 +136,7 @@ def draw_camera_content() -> Image.Image:
 
     draw.text(
         (150, 218),
-        "WORLD-FRAME CAMERA TRAJECTORY",
+        "WORLD-FRAME CAMERA TRAJECTORY · ARCTIC",
         font=HEADER_LABEL_FONT,
         fill=HEADER,
         anchor="lm",
@@ -156,21 +155,20 @@ def draw_camera_content() -> Image.Image:
     draw.line((125, 270, 1835, 270), fill=RULE, width=2)
 
     rows = [
-        ("DROID-SLAM", ["5.362", "3.524", "0.227", "0.146", "0.778"]),
-        ("InfiniteVGGT", ["13.524", "9.673", "1.492", "0.392", "0.556"]),
-        ("LingBot-Map", ["7.566", "6.185", "0.684", "0.253", "0.712"]),
-        ("MegaSaM", ["3.187", "2.134", "0.082", "0.063", "0.716"]),
-        ("MINT w/o stage 2", ["8.752", "8.371", "0.234", "0.229", "0.466"]),
-        ("MINT", ["3.120", "2.840", "0.200", "0.191", "0.878"]),
+        ("DROID-SLAM", ["33.845", "14.256", "1.006", "0.423", "0.964"]),
+        ("InfiniteVGGT", ["16.215", "12.637", "1.265", "0.655", "0.284"]),
+        ("LingBot-Map", ["9.171", "8.472", "0.980", "0.717", "0.591"]),
+        ("MegaSaM", ["8.738", "5.581", "0.779", "0.725", "1.956"]),
+        ("MINT", ["2.610", "2.600", "0.262", "0.256", "1.112"]),
     ]
     highlights = {
-        "MegaSaM": {1, 2, 3},
-        "MINT": {0, 4},
+        "DROID-SLAM": {4},
+        "MINT": {0, 1, 2, 3},
     }
-    row_centers = [345, 407, 470, 532, 593, 655]
+    row_centers = [360, 430, 500, 570, 640]
 
-    draw.line((125, 498, 1835, 498), fill=(76, 76, 76, 255), width=1)
-    draw.rectangle((125, 624, 1835, 688), fill=FOCUS_FILL, outline=HIGHLIGHT, width=2)
+    draw.line((125, 605, 1835, 605), fill=(76, 76, 76, 255), width=1)
+    draw.rectangle((125, 608, 1835, 672), fill=FOCUS_FILL, outline=HIGHLIGHT, width=2)
 
     for (method, values), y in zip(rows, row_centers):
         method_color = HIGHLIGHT if method == "MINT" else REGULAR
@@ -189,7 +187,7 @@ def draw_camera_content() -> Image.Image:
 
     draw.text(
         (110, 760),
-        "RPE-T / RPE-R report mean and median. Arc length ratio is closer to 1.",
+        "ARCTIC · RPE-T / RPE-R report mean and median. Arc length ratio is closer to 1.",
         font=FOOTNOTE_FONT,
         fill=(102, 102, 102, 255),
         anchor="lm",
@@ -213,14 +211,16 @@ def draw_summary_layers() -> tuple[Image.Image, Image.Image, Image.Image]:
     arctic_draw = ImageDraw.Draw(arctic_content)
 
     updates = [
-        (382, "0.945"),
-        (456, "0.983"),
-        (530, "0.953"),
-        (732, "0.918"),
+        ("hot3d", 382, "0.918"),
+        ("hot3d", 456, "0.957"),
+        ("hot3d", 530, "0.978"),
+        ("arctic", 732, "0.945"),
+        ("arctic", 806, "0.983"),
+        ("arctic", 880, "0.953"),
     ]
-    for y, value in updates:
+    for dataset, y, value in updates:
         mask_draw.rectangle((1348, y - 8, 1520, y + 56), fill=BACKGROUND)
-        selected_draw = hot3d_draw if y < 700 else arctic_draw
+        selected_draw = hot3d_draw if dataset == "hot3d" else arctic_draw
         selected_draw.text((1368, y), value, font=SUMMARY_FONT, fill=HIGHLIGHT)
     return mask, hot3d_content, arctic_content
 
@@ -238,12 +238,12 @@ def main() -> None:
 
     summary_mask, summary_hot3d, summary_arctic = draw_summary_layers()
     outputs = {
-        "benchmark-detail-mask-v20.png": draw_detail_mask(),
-        "benchmark-hand-content-v20.png": draw_hand_content(),
-        "benchmark-camera-content-v20.png": draw_camera_content(),
-        "benchmark-summary-mask-v20.png": summary_mask,
-        "benchmark-summary-hot3d-content-v20.png": summary_hot3d,
-        "benchmark-summary-arctic-content-v20.png": summary_arctic,
+        "benchmark-detail-mask-v21.png": draw_detail_mask(),
+        "benchmark-hand-content-v21.png": draw_hand_content(),
+        "benchmark-camera-content-v21.png": draw_camera_content(),
+        "benchmark-summary-mask-v21.png": summary_mask,
+        "benchmark-summary-hot3d-content-v21.png": summary_hot3d,
+        "benchmark-summary-arctic-content-v21.png": summary_arctic,
     }
     for name, image in outputs.items():
         image.save(args.output_dir / name, optimize=True)

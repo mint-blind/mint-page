@@ -1,0 +1,440 @@
+{
+  "schema_version": 8,
+  "analysis_type": "intrinsics",
+  "generated_at": "2026-09-03T12:12:13.145948+00:00",
+  "elapsed_sec": 3.685,
+  "cache_key": null,
+  "input_dirs": [
+    "build_train_lerobot/ego4d/lerobot_v3"
+  ],
+  "workers": 32,
+  "intrinsics": {
+    "available": true,
+    "source": "lerobot_parquet",
+    "dataset_roots": [
+      "build_train_lerobot/ego4d/lerobot_v3"
+    ],
+    "convention": "fov=[vertical, horizontal] radians",
+    "sampling": "first_frame_per_episode",
+    "assumptions": {
+      "principal_point": "图像中心（cx=W/2, cy=H/2；标注未提供）",
+      "skew": "按 0 处理（标注未提供）",
+      "distortion": "不可用（标注未提供畸变系数）"
+    },
+    "total_parquet_files": 1272,
+    "annotated_parquet_files": 1272,
+    "failed_parquet_files": 0,
+    "total_frames": 35950413,
+    "sampled_frames": 190298,
+    "valid_frames": 190298,
+    "invalid_frames": 0,
+    "total_episodes": 190298,
+    "valid_episodes": 190298,
+    "statistics": {
+      "fov_vertical_deg": {
+        "count": 190298,
+        "min": 5.0,
+        "p25": 42.4386,
+        "median": 63.401,
+        "p75": 83.458,
+        "p90": 93.3753,
+        "p95": 97.1321,
+        "max": 147.502,
+        "mean": 63.2789
+      },
+      "fov_horizontal_deg": {
+        "count": 190298,
+        "min": 6.6634,
+        "p25": 54.7396,
+        "median": 78.9429,
+        "p75": 99.8774,
+        "p90": 109.4741,
+        "p95": 112.9905,
+        "max": 155.3393,
+        "mean": 77.4771
+      },
+      "fx_px": {
+        "count": 190298,
+        "min": 111.9184,
+        "p25": 430.5534,
+        "median": 621.7367,
+        "p75": 989.0233,
+        "p90": 1266.4329,
+        "p95": 1394.5899,
+        "max": 8795.0461,
+        "mean": 731.202
+      },
+      "fy_px": {
+        "count": 190298,
+        "min": 111.9184,
+        "p25": 430.5535,
+        "median": 621.7368,
+        "p75": 989.0234,
+        "p90": 1266.4329,
+        "p95": 1394.5901,
+        "max": 8795.047,
+        "mean": 731.202
+      },
+      "fx_over_width": {
+        "count": 190298,
+        "min": 0.1093,
+        "p25": 0.4205,
+        "median": 0.6072,
+        "p75": 0.9658,
+        "p90": 1.2368,
+        "p95": 1.3619,
+        "max": 8.5889,
+        "mean": 0.7141
+      },
+      "fy_over_height": {
+        "count": 190298,
+        "min": 0.1457,
+        "p25": 0.5606,
+        "median": 0.8096,
+        "p75": 1.2878,
+        "p90": 1.649,
+        "p95": 1.8159,
+        "max": 11.4519,
+        "mean": 0.9521
+      },
+      "fx_over_fy": {
+        "count": 190298,
+        "min": 1.0,
+        "p25": 1.0,
+        "median": 1.0,
+        "p75": 1.0,
+        "p90": 1.0,
+        "p95": 1.0,
+        "max": 1.0,
+        "mean": 1.0
+      }
+    },
+    "distributions": {
+      "fov_vertical_deg": [
+        {
+          "label": "<30°",
+          "count": 7345,
+          "percent": 3.86
+        },
+        {
+          "label": "30°-45°",
+          "count": 47502,
+          "percent": 24.96
+        },
+        {
+          "label": "45°-60°",
+          "count": 33175,
+          "percent": 17.43
+        },
+        {
+          "label": "60°-75°",
+          "count": 34271,
+          "percent": 18.01
+        },
+        {
+          "label": "75°-90°",
+          "count": 39529,
+          "percent": 20.77
+        },
+        {
+          "label": "90°-105°",
+          "count": 27050,
+          "percent": 14.21
+        },
+        {
+          "label": "105°-120°",
+          "count": 1356,
+          "percent": 0.71
+        },
+        {
+          "label": "120°-150°",
+          "count": 70,
+          "percent": 0.04
+        },
+        {
+          "label": ">=150°",
+          "count": 0,
+          "percent": 0.0
+        }
+      ],
+      "fov_horizontal_deg": [
+        {
+          "label": "<30°",
+          "count": 91,
+          "percent": 0.05
+        },
+        {
+          "label": "30°-45°",
+          "count": 21591,
+          "percent": 11.35
+        },
+        {
+          "label": "45°-60°",
+          "count": 37989,
+          "percent": 19.96
+        },
+        {
+          "label": "60°-75°",
+          "count": 28036,
+          "percent": 14.73
+        },
+        {
+          "label": "75°-90°",
+          "count": 31729,
+          "percent": 16.67
+        },
+        {
+          "label": "90°-105°",
+          "count": 38548,
+          "percent": 20.26
+        },
+        {
+          "label": "105°-120°",
+          "count": 30831,
+          "percent": 16.2
+        },
+        {
+          "label": "120°-150°",
+          "count": 1480,
+          "percent": 0.78
+        },
+        {
+          "label": ">=150°",
+          "count": 3,
+          "percent": 0.0
+        }
+      ],
+      "fx_over_width": [
+        {
+          "label": "<0.2×W",
+          "count": 36,
+          "percent": 0.02
+        },
+        {
+          "label": "0.2×W-0.3×W",
+          "count": 2442,
+          "percent": 1.28
+        },
+        {
+          "label": "0.3×W-0.4×W",
+          "count": 36841,
+          "percent": 19.36
+        },
+        {
+          "label": "0.4×W-0.5×W",
+          "count": 31543,
+          "percent": 16.58
+        },
+        {
+          "label": "0.5×W-0.75×W",
+          "count": 45390,
+          "percent": 23.85
+        },
+        {
+          "label": "0.75×W-1×W",
+          "count": 30460,
+          "percent": 16.01
+        },
+        {
+          "label": "1×W-1.5×W",
+          "count": 40182,
+          "percent": 21.12
+        },
+        {
+          "label": ">=1.5×W",
+          "count": 3404,
+          "percent": 1.79
+        }
+      ],
+      "fy_over_height": [
+        {
+          "label": "<0.2×H",
+          "count": 6,
+          "percent": 0.0
+        },
+        {
+          "label": "0.2×H-0.3×H",
+          "count": 77,
+          "percent": 0.04
+        },
+        {
+          "label": "0.3×H-0.4×H",
+          "count": 2395,
+          "percent": 1.26
+        },
+        {
+          "label": "0.4×H-0.5×H",
+          "count": 25998,
+          "percent": 13.66
+        },
+        {
+          "label": "0.5×H-0.75×H",
+          "count": 57590,
+          "percent": 30.26
+        },
+        {
+          "label": "0.75×H-1×H",
+          "count": 30186,
+          "percent": 15.86
+        },
+        {
+          "label": "1×H-1.5×H",
+          "count": 44210,
+          "percent": 23.23
+        },
+        {
+          "label": ">=1.5×H",
+          "count": 29836,
+          "percent": 15.68
+        }
+      ],
+      "fx_over_fy": [
+        {
+          "label": "<0.9",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "0.9-0.95",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "0.95-0.98",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "0.98-1.02",
+          "count": 190298,
+          "percent": 100.0
+        },
+        {
+          "label": "1.02-1.05",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": "1.05-1.1",
+          "count": 0,
+          "percent": 0.0
+        },
+        {
+          "label": ">=1.1",
+          "count": 0,
+          "percent": 0.0
+        }
+      ],
+      "fov_pairs": [
+        {
+          "label": "88.9° × 105.2°",
+          "count": 317,
+          "percent": 0.17
+        },
+        {
+          "label": "85.2° × 101.6°",
+          "count": 310,
+          "percent": 0.16
+        },
+        {
+          "label": "85.3° × 101.7°",
+          "count": 308,
+          "percent": 0.16
+        },
+        {
+          "label": "91.5° × 107.7°",
+          "count": 307,
+          "percent": 0.16
+        },
+        {
+          "label": "85.4° × 101.8°",
+          "count": 301,
+          "percent": 0.16
+        },
+        {
+          "label": "36.2° × 47.1°",
+          "count": 296,
+          "percent": 0.16
+        },
+        {
+          "label": "34.6° × 45.1°",
+          "count": 295,
+          "percent": 0.16
+        },
+        {
+          "label": "33.4° × 43.6°",
+          "count": 293,
+          "percent": 0.15
+        },
+        {
+          "label": "93.4° × 109.5°",
+          "count": 292,
+          "percent": 0.15
+        },
+        {
+          "label": "35.8° × 46.6°",
+          "count": 292,
+          "percent": 0.15
+        },
+        {
+          "label": "36.6° × 47.6°",
+          "count": 292,
+          "percent": 0.15
+        },
+        {
+          "label": "89.2° × 105.5°",
+          "count": 288,
+          "percent": 0.15
+        },
+        {
+          "label": "84.9° × 101.3°",
+          "count": 287,
+          "percent": 0.15
+        },
+        {
+          "label": "89.0° × 105.3°",
+          "count": 287,
+          "percent": 0.15
+        },
+        {
+          "label": "37.5° × 48.7°",
+          "count": 286,
+          "percent": 0.15
+        },
+        {
+          "label": "89.1° × 105.4°",
+          "count": 285,
+          "percent": 0.15
+        },
+        {
+          "label": "84.8° × 101.2°",
+          "count": 285,
+          "percent": 0.15
+        },
+        {
+          "label": "37.0° × 48.1°",
+          "count": 285,
+          "percent": 0.15
+        },
+        {
+          "label": "37.1° × 48.2°",
+          "count": 284,
+          "percent": 0.15
+        },
+        {
+          "label": "91.4° × 107.6°",
+          "count": 283,
+          "percent": 0.15
+        }
+      ]
+    },
+    "diagnostics": [],
+    "failed_files": [],
+    "reason": null,
+    "valid_frame_percent": 100.0,
+    "valid_episode_percent": 100.0
+  },
+  "videos": [],
+  "duplicate_candidates": [],
+  "failed_files": []
+}

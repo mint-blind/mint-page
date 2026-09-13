@@ -1,0 +1,34 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:12.033
+In-the-wild reconstruction
+
+00:00:12.033 --> 00:00:19.633
+MINT
+
+00:00:19.633 --> 00:00:36.633
+Zero-shot results
+
+00:00:36.633 --> 00:00:48.633
+Training recipe
+
+00:00:48.633 --> 00:00:53.233
+Data composition
+
+00:00:53.233 --> 00:01:00.233
+Stage-two refinement
+
+00:01:00.233 --> 00:01:24.433
+Annotation pipeline and unified model
+
+00:01:24.433 --> 00:01:31.433
+Pipeline versus MINT
+
+00:01:31.433 --> 00:01:54.433
+Evaluation
+
+00:01:54.433 --> 00:02:02.433
+Speed at scale
+
+00:02:02.433 --> 00:02:13.434
+Open release

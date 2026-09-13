@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-language="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="description" content="MINT recovers world-space camera trajectories and bimanual hand motion from egocentric RGB video with one unified model.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision">
+    <meta property="og:description" content="A unified model trained with scalable egocentric pipeline supervision.">
+    <meta property="og:image" content="assets/media/film-poster.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>MINT — World-Space Camera and Hand Motion Estimation</title>
+    <link rel="icon" href="assets/favicon.svg?v=4" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/space-grotesk-variable.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.min.css?v=18">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ScholarlyArticle",
+        "name": "MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision",
+        "datePublished": "2026",
+        "creativeWorkStatus": "Under double-blind review",
+        "associatedMedia": {
+          "@type": "VideoObject",
+          "name": "MINT project film",
+          "contentUrl": "assets/media/mint-film-compact.mp4?v=20",
+          "thumbnailUrl": "assets/media/film-poster.webp"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link lang-en" href="#main">Skip to content</a>
+    <a class="skip-link lang-zh" href="#main">跳到正文</a>
+
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="brand-mark" href="#top" aria-label="MINT home">MINT</a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#film"><span class="lang-en">Film</span><span class="lang-zh">影片</span></a>
+          <a href="#videos"><span class="lang-en">Cases</span><span class="lang-zh">案例</span></a>
+          <a href="#pipeline"><span class="lang-en">Pipeline</span><span class="lang-zh">管线</span></a>
+          <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span></a>
+          <a href="#diversity"><span class="lang-en">Task composition</span><span class="lang-zh">任务组成</span></a>
+          <a href="#samples"><span class="lang-en">Samples</span><span class="lang-zh">样例</span></a>
+          <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span></a>
+        </nav>
+        <div class="nav-actions">
+          <button class="language-toggle" type="button" data-language-toggle aria-label="Switch language / 切换语言"><span data-language-option="en" class="is-active">EN</span><i aria-hidden="true">/</i><span data-language-option="zh">中文</span></button>
+          <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu"><span class="sr-only lang-en">Open menu</span><span class="sr-only lang-zh">打开菜单</span><i></i><i></i></button>
+        </div>
+      </div>
+      <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden>
+        <a href="#videos"><span class="lang-en">Challenging examples</span><span class="lang-zh">挑战性样例</span><i>01</i></a>
+        <a href="#pipeline"><span class="lang-en">EgoPipeline</span><span class="lang-zh">传统管线</span><i>02</i></a>
+        <a href="#method"><span class="lang-en">Method</span><span class="lang-zh">方法</span><i>03</i></a>
+        <a href="#diversity"><span class="lang-en">Dataset task composition</span><span class="lang-zh">数据集任务组成</span><i>04</i></a>
+        <a href="#samples"><span class="lang-en">HOT3D comparison</span><span class="lang-zh">HOT3D 对比</span><i>05</i></a>
+        <a href="#results"><span class="lang-en">Benchmarks</span><span class="lang-zh">评测</span><i>06</i></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="article-hero" id="top">
+          <p class="hero-vision lang-en"><span>We hope MINT can empower everyone to produce egocentric data,</span><span>scale its production and validation.</span></p>
+          <p class="hero-vision lang-zh"><span>我们希望 MINT 可以让所有人具备生产 Ego 数据的能力，推动 Ego 数据走向更大规模的生产与验证。</span></p>
+          <p class="eyebrow"><span class="eyebrow-mark" aria-hidden="true"></span><span class="lang-en">Under review · 2026</span><span class="lang-zh">评审中 · 2026</span></p>
+          <h1 class="hero-title lang-en">MINT: A Unified Model for World-Space Camera and Hand Motion Estimation from Scalable Egocentric Pipeline Supervision</h1>
+          <h1 class="hero-title lang-zh">MINT：基于可扩展第一视角管线监督的世界坐标系相机与手部运动估计统一模型</h1>
+          <p class="authors lang-en">Anonymous Authors</p>
+          <p class="authors lang-zh">匿名作者</p>
+          <p class="affiliations lang-en"><span>Paper under double-blind review</span></p>
+          <p class="affiliations lang-zh"><span>论文处于双盲评审中</span></p>
+          <div class="hero-actions">
+            <span class="button button-secondary is-withheld"><span class="lang-en">Paper — under review</span><span class="lang-zh">论文 — 评审中</span></span>
+            <span class="button button-secondary is-withheld"><span class="lang-en">Code, model, dataset — released upon acceptance</span><span class="lang-zh">代码、模型、数据集 — 录用后发布</span></span>
+          </div>
+        </header>
+
+        <section class="project-film section-shell" id="film" aria-label="MINT film">
+          <figure class="main-film">
+            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4?v=20" type="video/mp4"><source src="assets/media/mint-film-720p.webm?v=20" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4?v=20">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4?v=20">下载影片。</a></p></video></div>
+          </figure>
+          <nav class="film-chapters" aria-label="Film chapters">
+            <button type="button" class="is-active" data-chapter data-time="0"><b>00:00</b><span class="lang-en">In the wild</span><span class="lang-zh">真实场景</span></button>
+            <button type="button" data-chapter data-time="19.633"><b>00:20</b><span class="lang-en">Zero-shot</span><span class="lang-zh">零样本</span></button>
+            <button type="button" data-chapter data-time="36.633"><b>00:37</b><span class="lang-en">Training</span><span class="lang-zh">训练</span></button>
+            <button type="button" data-chapter data-time="60.233"><b>01:00</b><span class="lang-en">Pipeline</span><span class="lang-zh">管线</span></button>
+            <button type="button" data-chapter data-time="91.433"><b>01:31</b><span class="lang-en">Evaluation</span><span class="lang-zh">评测</span></button>
+            <button type="button" data-chapter data-time="122.433"><b>02:02</b><span class="lang-en">Release</span><span class="lang-zh">发布</span></button>
+          </nav>
+          <figure class="paper-figure"><button type="button" data-lightbox-src="assets/overview.webp?v=20260906" data-lightbox-alt="MINT paper Figure 1: scalable egocentric supervision and zero-shot world-space reconstruction"><img src="assets/overview.webp?v=20260906" alt="MINT paper Figure 1 showing large-scale egocentric videos, dataset diversity, and zero-shot world-space outputs" width="2400" height="922" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 1</b><p class="lang-en">MINT overview.</p><p class="lang-zh">MINT 概览。</p></figcaption></figure>
+        </section>
+
+        <section class="article-section section-shell video-section" id="videos" aria-labelledby="videos-title">
+          <div class="reading-column"><h2 id="videos-title" class="lang-en">Challenging video examples</h2><h2 class="lang-zh">挑战性视频样例</h2></div>
+          <!-- html-validate-disable no-autoplay -- These six muted examples intentionally loop with pause controls. -->
+          <div class="video-grid video-grid--three">
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/failure-01-poster.webp" width="1024" height="734"><source src="assets/media/cases/failure-01.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>01</span><div><h3 class="lang-en">Common action</h3><h3 class="lang-zh">常见动作</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/rapid-camera-poster.webp" width="1024" height="734"><source src="assets/media/cases/rapid-camera.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>02</span><div><h3 class="lang-en">Rapid camera motion</h3><h3 class="lang-zh">快速相机运动</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/close-hands-poster.webp" width="1024" height="734"><source src="assets/media/cases/close-hands.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>03</span><div><h3 class="lang-en">Close hand interaction</h3><h3 class="lang-zh">近距离手部交互</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/low-light-poster.webp" width="1024" height="734"><source src="assets/media/cases/low-light.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>04</span><div><h3 class="lang-en">Low light</h3><h3 class="lang-zh">低照度</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/bimanual-poster.webp" width="512" height="288"><source src="assets/media/cases/bimanual.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>05</span><div><h3 class="lang-en">Bimanual coordination</h3><h3 class="lang-zh">双手协同</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video autoplay muted loop playsinline preload="auto" poster="assets/media/cases/failure-02-poster.webp" width="1024" height="734"><source src="assets/media/cases/failure-02.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>06</span><div><h3 class="lang-en">Motion blur</h3><h3 class="lang-zh">运动模糊</h3></div></figcaption></figure>
+          </div>
+
+          <!-- html-validate-enable no-autoplay -->
+          <div class="video-subhead"><h3 class="lang-en">Matched-frame comparison</h3><h3 class="lang-zh">同帧对比</h3></div>
+          <div class="comparison-videos">
+            <figure><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/cases/comparison-original-poster.webp" width="512" height="288"><source src="assets/media/cases/comparison-original.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>01</span><b>RGB</b></figcaption></figure>
+            <figure><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/cases/comparison-pipeline-poster.webp" width="512" height="288"><source src="assets/media/cases/comparison-pipeline.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>02</span><b>EgoPipeline</b></figcaption></figure>
+            <figure><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/cases/comparison-mint-poster.webp" width="512" height="288"><source src="assets/media/cases/comparison-mint.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>03</span><b>MINT</b></figcaption></figure>
+          </div>
+
+          <div class="video-subhead failure-heading"><h3 class="lang-en">Failure cases</h3><h3 class="lang-zh">失败样例</h3></div>
+          <div class="failure-videos">
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/cases/dough-mint-poster.webp" width="1024" height="734"><source src="assets/media/cases/dough-mint.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>F01</span><div><h3 class="lang-en">Dough shaping</h3><h3 class="lang-zh">面团塑形</h3></div></figcaption></figure>
+            <figure class="video-card"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/cases/motion-blur-poster.webp" width="512" height="288"><source src="assets/media/cases/motion-blur.mp4" type="video/mp4"></video><button type="button" data-video-toggle aria-label="Play video"><span class="lang-en">Play</span><span class="lang-zh">播放</span></button></div><figcaption><span>F02</span><div><h3 class="lang-en">Motion blur</h3><h3 class="lang-zh">运动模糊</h3></div></figcaption></figure>
+          </div>
+        </section>
+
+        <section class="article-section section-shell pipeline-section" id="pipeline" aria-labelledby="pipeline-title">
+          <div class="reading-column"><h2 id="pipeline-title" class="lang-en">Scalable pseudo-label generation with EgoPipeline</h2><h2 class="lang-zh">EgoPipeline 规模化生成伪标签</h2></div>
+          <figure class="paper-figure pipeline-map"><button type="button" data-lightbox-src="assets/egopipeline.webp?v=20260905" data-lightbox-alt="MINT paper Figure 2: complete EgoPipeline with the world-frame hand-motion result in P4"><img src="assets/egopipeline.webp?v=20260905" alt="MINT paper Figure 2 showing hand filtering, camera calibration, depth, tracking, hand reconstruction, and trajectory cleanup, with the world-frame hand-motion visualization in P4" width="2400" height="1165" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 2</b><p class="lang-en">EgoPipeline stages.</p><p class="lang-zh">EgoPipeline 处理阶段。</p></figcaption></figure>
+
+        </section>
+
+        <section class="article-section section-shell" id="overview" aria-labelledby="overview-title">
+          <div class="reading-column highlight-intro"><h2 id="overview-title" class="lang-en">Model and training scale</h2><h2 class="lang-zh">模型与训练规模</h2><p class="section-lead lang-en">MINT jointly estimates camera motion, field of view, camera-frame MANO parameters, and hand presence from egocentric RGB video.</p><p class="section-lead lang-zh">MINT 从第一视角 RGB 视频联合估计相机运动、视场角、相机坐标系 MANO 参数与手部存在性。</p></div>
+          <div class="highlight-grid"><article><strong>1,021 h</strong><p class="lang-en">egocentric supervision</p><p class="lang-zh">第一视角监督</p></article><article><strong>1.139 B</strong><p class="lang-en">trainable parameters</p><p class="lang-zh">可训练参数</p></article><article><strong>4 heads</strong><p class="lang-en">camera · FOV · MANO&nbsp;·&nbsp;presence</p><p class="lang-zh">相机 · FOV · MANO&nbsp;·&nbsp;手部存在性</p></article><article><strong>32 frames</strong><p class="lang-en">training-window length</p><p class="lang-zh">训练窗口长度</p></article></div>
+        </section>
+
+        <section class="article-section section-shell" id="method" aria-label="MINT method">
+          <figure class="paper-figure"><button type="button" data-lightbox-src="assets/architecture.webp?v=3" data-lightbox-alt="MINT paper Figure 3: shared GCT backbone and four prediction heads"><img src="assets/architecture.webp?v=3" alt="MINT paper Figure 3 showing a shared GCT feeding camera, field-of-view, MANO, and presence heads" width="1800" height="679" loading="lazy"><span><span class="lang-en">Enlarge figure</span><span class="lang-zh">放大图片</span> ↗</span></button><figcaption><b>FIGURE 3</b><p class="lang-en">Model architecture.</p><p class="lang-zh">模型网络结构。</p></figcaption></figure>
+          <div class="method-points"><article><b>01</b><h3 class="lang-en">Spatiotemporal backbone</h3><h3 class="lang-zh">时空骨干网络</h3><p class="lang-en">Alternating frame-wise and global attention processes appearance and motion.</p><p class="lang-zh">帧内与全局注意力处理外观及运动。</p></article><article><b>02</b><h3 class="lang-en">World-space composition</h3><h3 class="lang-zh">世界坐标组合</h3><p class="lang-en">Rigid transformations compose camera extrinsics with camera-frame hand estimates.</p><p class="lang-zh">刚体变换组合相机与相机系手部预测。</p></article><article><b>03</b><h3 class="lang-en">Windowed inference</h3><h3 class="lang-zh">分窗推理</h3><p class="lang-en">Long videos use overlapping windows with camera alignment and hand-prediction fusion.</p><p class="lang-zh">长视频采用重叠窗口，并对齐相机轨迹、融合手部预测。</p></article></div>
+        </section>
+
+        <section class="article-section section-shell diversity-section" id="diversity" aria-labelledby="diversity-title">
+          <div class="reading-column">
+            <h2 id="diversity-title" class="lang-en">Dataset task composition</h2>
+            <h2 class="lang-zh">数据集任务组成</h2>
+          </div>
+
+          <div class="corpus-total" role="group" aria-label="Combined corpus totals">
+            <span><b>1,021.514</b><small class="lang-en">hours</small><small class="lang-zh">小时</small></span>
+            <span><b>560,649</b><small class="lang-en">episodes</small><small class="lang-zh">片段</small></span>
+            <span><b>110,323,558</b><small class="lang-en">frames</small><small class="lang-zh">帧</small></span>
+            <span><b>1,750,317</b><small class="lang-en">labels</small><small class="lang-zh">标签</small></span>
+          </div>
+
+          <nav class="diversity-tabs" role="tablist" aria-label="Dataset view">
+            <button id="diversity-tab-ego4d" class="is-active" type="button" role="tab" aria-selected="true" aria-controls="diversity-panel-ego4d" data-diversity-tab="ego4d" style="--tab-color:#7596CA"><i>01</i><b>Ego4D</b></button>
+            <button id="diversity-tab-egodex" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-egodex" data-diversity-tab="egodex" style="--tab-color:#EEBC46"><i>02</i><b>EgoDex</b></button>
+            <button id="diversity-tab-epic" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-epic" data-diversity-tab="epic" style="--tab-color:#90AE77"><i>03</i><b>EPIC</b></button>
+            <button id="diversity-tab-combined" type="button" role="tab" aria-selected="false" aria-controls="diversity-panel-combined" data-diversity-tab="combined" style="--tab-color:#207FFF"><i>04</i><b><span class="lang-en">All</span><span class="lang-zh">综合</span></b></button>
+          </nav>
+
+          <div class="dataset-panels" data-diversity-panels>
+            <article class="dataset-panel" id="diversity-panel-ego4d" role="tabpanel" aria-labelledby="diversity-tab-ego4d" data-diversity-panel="ego4d" style="--dataset-color:#7596CA" tabindex="0">
+              <header class="dataset-header">
+                <div><h3>Ego4D</h3></div>
+                <strong>332.874 <small>h</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>190,298</b><small class="lang-en">episodes</small><small class="lang-zh">片段</small></span>
+                <span><b>185,850</b><small class="lang-en">labels</small><small class="lang-zh">标签</small></span>
+                <span><b>10.80</b><small class="lang-en">scene diversity</small><small class="lang-zh">场景多样性</small></span>
+                <span><b>85.0%</b><small class="lang-en">action match</small><small class="lang-zh">动作命中</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="Ego4D semantic scene distribution"><h4><span class="lang-en">Scenes</span><span class="lang-zh">场景</span><small class="lang-en" data-distribution-summary>effective 10.80</small><small class="lang-zh" data-distribution-summary>有效 10.80</small></h4>
+                  <div class="bar-list bar-list--complete" data-distribution-dataset="ego4d" data-distribution-key="scene_counts">
+                    <div class="bar-row"><div><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>25.8%</b></div><i><span style="--value:25.8"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Woodwork / renovation</span><span class="lang-zh">木工 / 装修 / 建材</span><b>13.0%</b></div><i><span style="--value:13"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Mechanical / repair</span><span class="lang-zh">机械 / 维修 / 工具</span><b>9.0%</b></div><i><span style="--value:9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Painting / art</span><span class="lang-zh">绘画 / 艺术</span><b>8.2%</b></div><i><span style="--value:8.2"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Other</span><span class="lang-zh">其他</span><b>7.9%</b></div><i><span style="--value:7.9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cleaning / washing</span><span class="lang-zh">清洁 / 洗涤</span><b>7.6%</b></div><i><span style="--value:7.6"></span></i></div>
+                  </div>
+                </section>
+                <section aria-label="Ego4D action distribution"><h4><span class="lang-en">Actions</span><span class="lang-zh">动作</span><small class="lang-en" data-distribution-summary>effective 16.51 · multi-label</small><small class="lang-zh" data-distribution-summary>有效 16.51 · 多标签</small></h4>
+                  <div class="bar-list bar-list--complete" data-distribution-dataset="ego4d" data-distribution-key="action_counts">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>16.5%</b></div><i><span style="--value:16.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Draw / write</span><span class="lang-zh">绘画 / 书写</span><b>16.1%</b></div><i><span style="--value:16.1"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cut / peel</span><span class="lang-zh">切削 / 剥皮</span><b>13.7%</b></div><i><span style="--value:13.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>13.6%</b></div><i><span style="--value:13.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Tool use</span><span class="lang-zh">工具操作</span><b>11.6%</b></div><i><span style="--value:11.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Clean / wash</span><span class="lang-zh">清洁 / 擦洗</span><b>11.3%</b></div><i><span style="--value:11.3"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">sample</small><small class="lang-zh">样本</small><b>14,274 ep.</b></span><span><small class="lang-en">camera · P50 / P90</small><small class="lang-zh">相机 · P50 / P90</small><b>0.421 / 1.510 m</b></span><span><small class="lang-en">head · P50 / P90</small><small class="lang-zh">头部 · P50 / P90</small><b>26.7° / 73.7°</b></span><span><small class="lang-en">hand · P50 / P90</small><small class="lang-zh">手部 · P50 / P90</small><b>0.442 / 0.806 m</b></span></div>
+            </article>
+
+            <article class="dataset-panel" id="diversity-panel-egodex" role="tabpanel" aria-labelledby="diversity-tab-egodex" data-diversity-panel="egodex" style="--dataset-color:#EEBC46" tabindex="0" hidden>
+              <header class="dataset-header">
+                <div><h3>EgoDex</h3></div>
+                <strong>633.446 <small>h</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>343,583</b><small class="lang-en">episodes</small><small class="lang-zh">片段</small></span>
+                <span><b>1,481,800</b><small class="lang-en">labels</small><small class="lang-zh">标签</small></span>
+                <span><b>12.62</b><small class="lang-en">scene diversity</small><small class="lang-zh">场景多样性</small></span>
+                <span><b>93.4%</b><small class="lang-en">action match</small><small class="lang-zh">动作命中</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="EgoDex semantic scene distribution"><h4><span class="lang-en">Scenes</span><span class="lang-zh">场景</span><small class="lang-en" data-distribution-summary>effective 12.62</small><small class="lang-zh" data-distribution-summary>有效 12.62</small></h4>
+                  <div class="bar-list bar-list--complete" data-distribution-dataset="egodex" data-distribution-key="scene_counts">
+                    <div class="bar-row"><div><span class="lang-en">Storage / containers</span><span class="lang-zh">收纳 / 容器</span><b>14.4%</b></div><i><span style="--value:14.4"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Puzzles / board games</span><span class="lang-zh">益智 / 桌游</span><b>13.9%</b></div><i><span style="--value:13.9"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>13.6%</b></div><i><span style="--value:13.6"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Other</span><span class="lang-zh">其他</span><b>13.0%</b></div><i><span style="--value:13"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Textile / laundry</span><span class="lang-zh">纺织 / 衣物 / 洗衣</span><b>8.5%</b></div><i><span style="--value:8.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Electronics / cables</span><span class="lang-zh">电子 / 线缆 / 设备</span><b>7.1%</b></div><i><span style="--value:7.1"></span></i></div>
+                  </div>
+                </section>
+                <section aria-label="EgoDex action distribution"><h4><span class="lang-en">Actions</span><span class="lang-zh">动作</span><small class="lang-en" data-distribution-summary>effective 14.42 · multi-label</small><small class="lang-zh" data-distribution-summary>有效 14.42 · 多标签</small></h4>
+                  <div class="bar-list bar-list--complete" data-distribution-dataset="egodex" data-distribution-key="action_counts">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>21.5%</b></div><i><span style="--value:21.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Grasp / hold</span><span class="lang-zh">抓握 / 持握</span><b>16.5%</b></div><i><span style="--value:16.5"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>15.8%</b></div><i><span style="--value:15.8"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Reach / touch</span><span class="lang-zh">伸手 / 触碰</span><b>12.7%</b></div><i><span style="--value:12.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Move / carry</span><span class="lang-zh">移动 / 搬运</span><b>10.0%</b></div><i><span style="--value:10"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Draw / write</span><span class="lang-zh">绘画 / 书写</span><b>7.9%</b></div><i><span style="--value:7.9"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">sample</small><small class="lang-zh">样本</small><b>8,236 ep.</b></span><span><small class="lang-en">camera · P50 / P90</small><small class="lang-zh">相机 · P50 / P90</small><b>0.117 / 0.288 m</b></span><span><small class="lang-en">head · P50 / P90</small><small class="lang-zh">头部 · P50 / P90</small><b>4.4° / 13.1°</b></span><span><small class="lang-en">hand · P50 / P90</small><small class="lang-zh">手部 · P50 / P90</small><b>0.319 / 0.553 m</b></span></div>
+            </article>
+
+            <article class="dataset-panel" id="diversity-panel-epic" role="tabpanel" aria-labelledby="diversity-tab-epic" data-diversity-panel="epic" style="--dataset-color:#90AE77" tabindex="0" hidden>
+              <header class="dataset-header">
+                <div><h3>EPIC-KITCHENS-100</h3></div>
+                <strong>55.194 <small>h</small></strong>
+              </header>
+              <div class="dataset-kpis">
+                <span><b>26,768</b><small class="lang-en">episodes</small><small class="lang-zh">片段</small></span>
+                <span><b>82,667</b><small class="lang-en">labels</small><small class="lang-zh">标签</small></span>
+                <span><b>1.00*</b><small class="lang-en">scene diversity</small><small class="lang-zh">场景多样性</small></span>
+                <span><b>93.3%</b><small class="lang-en">action match</small><small class="lang-zh">动作命中</small></span>
+              </div>
+              <div class="dataset-plots">
+                <section aria-label="EPIC-KITCHENS semantic scene distribution"><h4><span class="lang-en">Scenes</span><span class="lang-zh">场景</span><small class="lang-en">protocol category</small><small class="lang-zh">协议分类</small></h4>
+                  <div class="single-domain"><span class="lang-en">Kitchen / cooking</span><span class="lang-zh">厨房 / 烹饪</span><b>100%</b><i><span></span></i><small class="lang-en">*Protocol-assigned kitchen domain.</small><small class="lang-zh">*按协议归入厨房域。</small></div>
+                </section>
+                <section aria-label="EPIC-KITCHENS action distribution"><h4><span class="lang-en">Actions</span><span class="lang-zh">动作</span><small class="lang-en" data-distribution-summary>effective 13.79 · multi-label</small><small class="lang-zh" data-distribution-summary>有效 13.79 · 多标签</small></h4>
+                  <div class="bar-list bar-list--complete" data-distribution-dataset="epickitchen" data-distribution-key="action_counts">
+                    <div class="bar-row"><div><span class="lang-en">Place / set down</span><span class="lang-zh">放置 / 放下</span><b>20.0%</b></div><i><span style="--value:20"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Cut / peel</span><span class="lang-zh">切削 / 剥皮</span><b>19.0%</b></div><i><span style="--value:19"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Clean / wash</span><span class="lang-zh">清洁 / 擦洗</span><b>18.7%</b></div><i><span style="--value:18.7"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Pick up / lift</span><span class="lang-zh">拿取 / 举起</span><b>14.2%</b></div><i><span style="--value:14.2"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Grasp / hold</span><span class="lang-zh">抓握 / 持握</span><b>11.0%</b></div><i><span style="--value:11"></span></i></div>
+                    <div class="bar-row"><div><span class="lang-en">Move / carry</span><span class="lang-zh">移动 / 搬运</span><b>8.9%</b></div><i><span style="--value:8.9"></span></i></div>
+                  </div>
+                </section>
+              </div>
+              <div class="motion-strip"><span><small class="lang-en">sample</small><small class="lang-zh">样本</small><b>7,316 ep.</b></span><span><small class="lang-en">camera · P50 / P90</small><small class="lang-zh">相机 · P50 / P90</small><b>0.346 / 0.998 m</b></span><span><small class="lang-en">head · P50 / P90</small><small class="lang-zh">头部 · P50 / P90</small><b>22.5° / 60.4°</b></span><span><small class="lang-en">hand · P50 / P90</small><small class="lang-zh">手部 · P50 / P90</small><b>0.482 / 0.784 m</b></span></div>
+            </article>
+            <article class="combined-analysis" id="diversity-panel-combined" role="tabpanel" aria-labelledby="diversity-tab-combined" data-diversity-panel="combined" tabindex="0" hidden>
+              <header><h3 class="lang-en">All datasets</h3><h3 class="lang-zh">全部数据集</h3></header>
+              <div class="frame-share" role="img" aria-label="Frame share by dataset: Ego4D 32.6%, EgoDex 62.0%, EPIC-KITCHENS-100 5.4%"><span class="ego4d" style="--share:32.586"><b>Ego4D</b><small>32.6%</small></span><span class="egodex" style="--share:62.010"><b>EgoDex</b><small>62.0%</small></span><span class="epic" style="--share:5.403"><b>EPIC</b><small>5.4%</small></span></div>
+              <div class="comparison-legend"><span><i class="ego4d"></i>Ego4D</span><span><i class="egodex"></i>EgoDex</span><span><i class="epic"></i>EPIC-KITCHENS-100</span></div>
+              <div class="comparison-chart" role="img" aria-label="Dataset comparison">
+                <div class="comparison-row"><strong><span class="lang-en">Scene diversity</span><span class="lang-zh">场景多样性</span></strong><div><i class="ego4d" style="--value:85.6"><b>10.80</b></i><i class="egodex" style="--value:100"><b>12.62</b></i><i class="epic" style="--value:7.9"><b>1.00*</b></i></div></div>
+                <div class="comparison-row"><strong><span class="lang-en">Action match</span><span class="lang-zh">动作命中</span></strong><div><i class="ego4d" style="--value:90.9"><b>85.0%</b></i><i class="egodex" style="--value:100"><b>93.4%</b></i><i class="epic" style="--value:99.9"><b>93.3%</b></i></div></div>
+                <div class="comparison-row"><strong><span class="lang-en">Camera · P50</span><span class="lang-zh">相机 · P50</span></strong><div><i class="ego4d" style="--value:100"><b>0.421 m</b></i><i class="egodex" style="--value:27.7"><b>0.117 m</b></i><i class="epic" style="--value:82.1"><b>0.346 m</b></i></div></div>
+                <div class="comparison-row"><strong><span class="lang-en">Head · P50</span><span class="lang-zh">头部 · P50</span></strong><div><i class="ego4d" style="--value:100"><b>26.7°</b></i><i class="egodex" style="--value:16.4"><b>4.4°</b></i><i class="epic" style="--value:84.6"><b>22.5°</b></i></div></div>
+                <div class="comparison-row"><strong><span class="lang-en">Hand · P50</span><span class="lang-zh">手部 · P50</span></strong><div><i class="ego4d" style="--value:91.9"><b>0.442 m</b></i><i class="egodex" style="--value:66.2"><b>0.319 m</b></i><i class="epic" style="--value:100"><b>0.482 m</b></i></div></div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="article-section section-shell" id="samples" aria-labelledby="samples-title">
+          <div class="reading-column"><h2 id="samples-title" class="lang-en">Zero-shot predictions vs. ground truth on HOT3D</h2><h2 class="lang-zh">HOT3D 零样本预测与真值对比</h2></div>
+
+          <div class="sample-toolbar">
+            <div class="sample-tabs" role="tablist" aria-label="Sample selector">
+              <button type="button" data-sample-tab="000" aria-controls="sample-000"><b>01</b><span class="lang-en">Bowl and squeeze bottle</span><span class="lang-zh">取碗与挤压瓶</span></button>
+              <button type="button" data-sample-tab="002" aria-controls="sample-002"><b>02</b><span class="lang-en">Toy house and figure</span><span class="lang-zh">玩具屋与摆件</span></button>
+              <button type="button" data-sample-tab="003" aria-controls="sample-003"><b>03</b><span class="lang-en">Rubik’s cube in hand</span><span class="lang-zh">手中的魔方</span></button>
+              <button type="button" data-sample-tab="007" aria-controls="sample-007"><b>04</b><span class="lang-en">Glasses handling</span><span class="lang-zh">眼镜操作</span></button>
+            </div>
+            <button class="sample-play-all" type="button" data-sample-play-all><i data-sample-play-icon aria-hidden="true">▶</i><span class="lang-en">Play all 8 synchronously</span><span class="lang-zh">同步播放全部 8 个视频</span></button>
+          </div>
+
+          <div class="sample-panel" id="sample-000" data-sample-panel="000" role="tabpanel" hidden>
+            <div class="sample-views"><article class="sample-view"><h4><span class="lang-en">2D reprojection</span><span class="lang-zh">2D 重投影</span></h4><p class="lang-en">Camera-frame hand geometry reprojected onto RGB.</p><p class="lang-zh">相机系手部几何重投影至 RGB 图像。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-2d-gt-poster.webp"><source src="assets/media/samples/ep000-2d-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-2d-pred-poster.webp"><source src="assets/media/samples/ep000-2d-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">World-frame 3D</span><span class="lang-zh">世界系 3D</span></h4><p class="lang-en">World-frame skeletons and trajectories.</p><p class="lang-zh">世界系骨架与轨迹。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-world-gt-poster.webp"><source src="assets/media/samples/ep000-world-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-world-pred-poster.webp"><source src="assets/media/samples/ep000-world-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">MuJoCo simulation</span><span class="lang-zh">MuJoCo 仿真</span></h4><p class="lang-en">MANO motion in MuJoCo.</p><p class="lang-zh">MuJoCo 中的 MANO 运动。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-mujoco-gt-poster.webp"><source src="assets/media/samples/ep000-mujoco-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-mujoco-pred-poster.webp"><source src="assets/media/samples/ep000-mujoco-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">Dexterous hand retargeting</span><span class="lang-zh">灵巧手重定向</span></h4><p class="lang-en">Twenty-one keypoints retargeted to the 20-DoF dexterous hand.</p><p class="lang-zh">21 个关键点重定向至 20 自由度灵巧手。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-retarget-gt-poster.webp"><source src="assets/media/samples/ep000-retarget-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep000-retarget-pred-poster.webp"><source src="assets/media/samples/ep000-retarget-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article></div>
+          </div>
+          <div class="sample-panel" id="sample-002" data-sample-panel="002" role="tabpanel" hidden>
+            <div class="sample-views"><article class="sample-view"><h4><span class="lang-en">2D reprojection</span><span class="lang-zh">2D 重投影</span></h4><p class="lang-en">Camera-frame hand geometry reprojected onto RGB.</p><p class="lang-zh">相机系手部几何重投影至 RGB 图像。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-2d-gt-poster.webp"><source src="assets/media/samples/ep002-2d-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-2d-pred-poster.webp"><source src="assets/media/samples/ep002-2d-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">World-frame 3D</span><span class="lang-zh">世界系 3D</span></h4><p class="lang-en">World-frame skeletons and trajectories.</p><p class="lang-zh">世界系骨架与轨迹。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-world-gt-poster.webp"><source src="assets/media/samples/ep002-world-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-world-pred-poster.webp"><source src="assets/media/samples/ep002-world-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">MuJoCo simulation</span><span class="lang-zh">MuJoCo 仿真</span></h4><p class="lang-en">MANO motion in MuJoCo.</p><p class="lang-zh">MuJoCo 中的 MANO 运动。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-mujoco-gt-poster.webp"><source src="assets/media/samples/ep002-mujoco-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-mujoco-pred-poster.webp"><source src="assets/media/samples/ep002-mujoco-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">Dexterous hand retargeting</span><span class="lang-zh">灵巧手重定向</span></h4><p class="lang-en">Twenty-one keypoints retargeted to the 20-DoF dexterous hand.</p><p class="lang-zh">21 个关键点重定向至 20 自由度灵巧手。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-retarget-gt-poster.webp"><source src="assets/media/samples/ep002-retarget-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep002-retarget-pred-poster.webp"><source src="assets/media/samples/ep002-retarget-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article></div>
+          </div>
+          <div class="sample-panel" id="sample-003" data-sample-panel="003" role="tabpanel" hidden>
+            <div class="sample-views"><article class="sample-view"><h4><span class="lang-en">2D reprojection</span><span class="lang-zh">2D 重投影</span></h4><p class="lang-en">Camera-frame hand geometry reprojected onto RGB.</p><p class="lang-zh">相机系手部几何重投影至 RGB 图像。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-2d-gt-poster.webp"><source src="assets/media/samples/ep003-2d-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-2d-pred-poster.webp"><source src="assets/media/samples/ep003-2d-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">World-frame 3D</span><span class="lang-zh">世界系 3D</span></h4><p class="lang-en">World-frame skeletons and trajectories.</p><p class="lang-zh">世界系骨架与轨迹。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-world-gt-poster.webp"><source src="assets/media/samples/ep003-world-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-world-pred-poster.webp"><source src="assets/media/samples/ep003-world-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">MuJoCo simulation</span><span class="lang-zh">MuJoCo 仿真</span></h4><p class="lang-en">MANO motion in MuJoCo.</p><p class="lang-zh">MuJoCo 中的 MANO 运动。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-mujoco-gt-poster.webp"><source src="assets/media/samples/ep003-mujoco-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-mujoco-pred-poster.webp"><source src="assets/media/samples/ep003-mujoco-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">Dexterous hand retargeting</span><span class="lang-zh">灵巧手重定向</span></h4><p class="lang-en">Twenty-one keypoints retargeted to the 20-DoF dexterous hand.</p><p class="lang-zh">21 个关键点重定向至 20 自由度灵巧手。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-retarget-gt-poster.webp"><source src="assets/media/samples/ep003-retarget-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep003-retarget-pred-poster.webp"><source src="assets/media/samples/ep003-retarget-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article></div>
+          </div>
+          <div class="sample-panel" id="sample-007" data-sample-panel="007" role="tabpanel" hidden>
+            <div class="sample-views"><article class="sample-view"><h4><span class="lang-en">2D reprojection</span><span class="lang-zh">2D 重投影</span></h4><p class="lang-en">Camera-frame hand geometry reprojected onto RGB.</p><p class="lang-zh">相机系手部几何重投影至 RGB 图像。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-2d-gt-poster.webp"><source src="assets/media/samples/ep007-2d-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-2d-pred-poster.webp"><source src="assets/media/samples/ep007-2d-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">World-frame 3D</span><span class="lang-zh">世界系 3D</span></h4><p class="lang-en">World-frame skeletons and trajectories.</p><p class="lang-zh">世界系骨架与轨迹。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-world-gt-poster.webp"><source src="assets/media/samples/ep007-world-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-world-pred-poster.webp"><source src="assets/media/samples/ep007-world-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">MuJoCo simulation</span><span class="lang-zh">MuJoCo 仿真</span></h4><p class="lang-en">MANO motion in MuJoCo.</p><p class="lang-zh">MuJoCo 中的 MANO 运动。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-mujoco-gt-poster.webp"><source src="assets/media/samples/ep007-mujoco-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-mujoco-pred-poster.webp"><source src="assets/media/samples/ep007-mujoco-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article><article class="sample-view"><h4><span class="lang-en">Dexterous hand retargeting</span><span class="lang-zh">灵巧手重定向</span></h4><p class="lang-en">Twenty-one keypoints retargeted to the 20-DoF dexterous hand.</p><p class="lang-zh">21 个关键点重定向至 20 自由度灵巧手。</p><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-retarget-gt-poster.webp"><source src="assets/media/samples/ep007-retarget-gt.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">Ground truth</span><span class="lang-zh">真值</span></figcaption></figure><figure class="sample-tile"><div class="loop-frame"><video data-loop-video muted loop playsinline preload="none" poster="assets/media/samples/ep007-retarget-pred-poster.webp"><source src="assets/media/samples/ep007-retarget-pred.mp4" type="video/mp4"></video></div><figcaption><span class="lang-en">MINT</span><span class="lang-zh">MINT</span></figcaption></figure></article></div>
+          </div>
+        </section>
+
+        <section class="article-section section-shell" id="results" aria-labelledby="results-title">
+          <div class="reading-column"><h2 id="results-title" class="lang-en">Benchmarks</h2><h2 class="lang-zh">定量评测</h2></div>
+
+          <article class="benchmark-block">
+            <header><span>BENCHMARK 01</span><div><h3 class="lang-en">Camera-frame bimanual reconstruction</h3><h3 class="lang-zh">相机系下的双手重建</h3><p class="lang-en">Zero-shot evaluation on the ARCTIC and HOT3D datasets.</p><p class="lang-zh">ARCTIC 与 HOT3D 数据集上的零样本评测。</p></div></header>
+            <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete camera-frame hand benchmark on ARCTIC and HOT3D">
+              <table>
+                <caption><span class="lang-en">Main comparison on ARCTIC and HOT3D · best result per column in bold, with MINT also bold when it outperforms every non-MINT method · ↑/↓ indicate the direction of improvement · MPJPE-p and PA-MPJPE-p are in mm, EPE-p in px, GO-p in degrees, CT-p in m, and Jitter in mm/frame² · MINT is evaluated zero-shot</span><span class="lang-zh">ARCTIC 与 HOT3D 上的主要对比 · 每列最优结果以粗体标出；当 MINT 优于所有非 MINT 方法时，其结果也加粗 · ↑/↓ 表示指标提升方向 · MPJPE-p 与 PA-MPJPE-p 的单位为 mm，EPE-p 为 px，GO-p 为度，CT-p 为 m，Jitter 为 mm/frame² · MINT 采用零样本评测</span></caption>
+                <thead>
+                  <tr><th scope="col" rowspan="2"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col" rowspan="2"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="colgroup" colspan="3"><span class="lang-en">Detection</span><span class="lang-zh">检测</span></th><th scope="colgroup" colspan="3"><span class="lang-en">3D Pose</span><span class="lang-zh">3D 位姿</span></th><th scope="colgroup" colspan="2"><span class="lang-en">Orientation &amp; Position</span><span class="lang-zh">朝向与位置</span></th><th scope="colgroup"><span class="lang-en">Temporal</span><span class="lang-zh">时序</span></th></tr>
+                  <tr><th scope="col">FAcc ↑</th><th scope="col">Recall ↑</th><th scope="col">F1 ↑</th><th scope="col">MPJPE-p ↓<br><small>mm</small></th><th scope="col">PA-MPJPE-p ↓<br><small>mm</small></th><th scope="col">EPE-p ↓<br><small>px</small></th><th scope="col">GO-p ↓<br><small>deg</small></th><th scope="col">CT-p ↓<br><small>m</small></th><th scope="col">Jitter ↓<br><small>mm/frame²</small></th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="rowgroup" rowspan="10">ARCTIC</th><td>InterWild</td><td>0.878</td><td>0.943</td><td>0.959</td><td>30.817</td><td>15.952</td><td>53.888</td><td>25.386</td><td>0.097</td><td>46.577</td></tr>
+                  <tr><td>HaMeR</td><td>0.875</td><td>0.943</td><td>0.957</td><td>29.197</td><td>14.596</td><td>65.289</td><td>24.907</td><td>0.095</td><td>18.279</td></tr>
+                  <tr><td>Hamba</td><td>0.833</td><td>0.912</td><td>0.941</td><td>31.233</td><td>17.168</td><td>87.047</td><td>27.822</td><td>0.110</td><td>15.357</td></tr>
+                  <tr><td>WildHands</td><td>0.879</td><td>0.946</td><td>0.960</td><td>25.704</td><td>13.941</td><td><b>50.517</b></td><td>22.320</td><td><b>0.058</b></td><td>12.972</td></tr>
+                  <tr><td>OmniHands</td><td>0.866</td><td>0.949</td><td>0.954</td><td>29.674</td><td>14.203</td><td>51.505</td><td>24.580</td><td>0.087</td><td>45.312</td></tr>
+                  <tr><td>WiLoR</td><td><b>0.919</b></td><td>0.951</td><td>0.974</td><td><b>22.012</b></td><td><b>11.873</b></td><td>71.527</td><td><b>17.358</b></td><td>0.075</td><td>24.091</td></tr>
+                  <tr><td>Dyn-HaMR</td><td>0.842</td><td>0.918</td><td>0.951</td><td>27.904</td><td>17.017</td><td>85.723</td><td>25.951</td><td>0.121</td><td>12.840</td></tr>
+                  <tr><td>HaWoR</td><td>0.700</td><td>0.817</td><td>0.895</td><td>45.357</td><td>26.375</td><td>158.062</td><td>43.325</td><td>0.149</td><td>19.789</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td>0.918</td><td><b>0.957</b></td><td><b>0.978</b></td><td>26.527</td><td>15.961</td><td>55.038</td><td>19.332</td><td>0.069</td><td>12.959</td></tr>
+                  <tr class="mint-row"><td>MINT + UKF</td><td>0.918</td><td><b>0.957</b></td><td><b>0.978</b></td><td>26.568</td><td>15.955</td><td>54.997</td><td>19.353</td><td>0.069</td><td><b>2.621</b></td></tr>
+                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="10">HOT3D</th><td>InterWild</td><td>0.669</td><td>0.881</td><td>0.868</td><td>77.168</td><td>24.811</td><td>71.482</td><td>58.501</td><td>0.213</td><td>101.164</td></tr>
+                  <tr><td>HaMeR</td><td>0.692</td><td>0.904</td><td>0.883</td><td>68.314</td><td>21.455</td><td>59.077</td><td>49.636</td><td>0.102</td><td>23.632</td></tr>
+                  <tr><td>Hamba</td><td>0.632</td><td>0.828</td><td>0.853</td><td>71.732</td><td>29.620</td><td>107.625</td><td>56.525</td><td>0.128</td><td>18.507</td></tr>
+                  <tr><td>WildHands</td><td>0.655</td><td>0.863</td><td>0.844</td><td>52.791</td><td>28.946</td><td>111.438</td><td>53.933</td><td>0.157</td><td>22.885</td></tr>
+                  <tr><td>OmniHands</td><td>0.649</td><td>0.895</td><td>0.868</td><td>63.281</td><td>22.682</td><td>68.437</td><td>49.120</td><td>0.133</td><td>69.510</td></tr>
+                  <tr><td>WiLoR</td><td>0.827</td><td>0.897</td><td>0.937</td><td>30.966</td><td>19.980</td><td>72.978</td><td>25.746</td><td><b>0.098</b></td><td>17.976</td></tr>
+                  <tr><td>Dyn-HaMR</td><td>0.614</td><td>0.811</td><td>0.802</td><td>74.214</td><td>38.201</td><td>171.617</td><td>43.851</td><td>0.571</td><td>44.942</td></tr>
+                  <tr><td>HaWoR</td><td>0.348</td><td>0.499</td><td>0.654</td><td>71.396</td><td>66.031</td><td>327.294</td><td>79.350</td><td>0.262</td><td>23.872</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.926</b></td><td><b>13.656</b></td><td><b>55.117</b></td><td><b>21.099</b></td><td>0.196</td><td><b>12.057</b></td></tr>
+                  <tr class="mint-row"><td>MINT + UKF</td><td><b>0.945</b></td><td><b>0.983</b></td><td><b>0.953</b></td><td><b>29.918</b></td><td><b>13.646</b></td><td><b>55.058</b></td><td><b>21.091</b></td><td>0.196</td><td><b>2.373</b></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="benchmark-block">
+            <header><span>BENCHMARK 02</span><div><h3 class="lang-en">World-frame camera trajectory</h3><h3 class="lang-zh">世界系下的相机轨迹</h3></div></header>
+            <div class="table-wrap benchmark-table-wrap benchmark-complete-table" tabindex="0" aria-label="Complete full-sequence world-frame camera trajectory benchmark">
+              <table>
+                <caption><span class="lang-en">World-frame camera trajectory, latest complete-sequence comparison · RPE-T and RPE-R report mean / median · arc length ratio is closer to 1 · bold marks the best value in each column</span><span class="lang-zh">世界系相机轨迹最新完整序列对比 · RPE-T 与 RPE-R 报告均值 / 中位数 · 弧长比越接近 1 越好 · 加粗为每列最优</span></caption>
+                <thead><tr><th scope="col"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span></th><th scope="col"><span class="lang-en">Method</span><span class="lang-zh">方法</span></th><th scope="col">RPE-T ↓<br><small>mean / med. · mm</small></th><th scope="col">RPE-R ↓<br><small>mean / med. · deg</small></th><th scope="col">Arc len.<br><small>ratio → 1</small></th></tr></thead>
+                <tbody>
+                  <tr><th scope="rowgroup" rowspan="6">HOT3D</th><td>DROID-SLAM [24]</td><td>5.362 / 3.524</td><td>0.227 / 0.146</td><td>0.778</td></tr>
+                  <tr><td>InfiniteVGGT [38]</td><td>13.524 / 9.673</td><td>1.492 / 0.392</td><td>0.556</td></tr>
+                  <tr><td>LingBot-Map [3]</td><td>7.566 / 6.185</td><td>0.684 / 0.253</td><td>0.712</td></tr>
+                  <tr><td>MegaSaM [13]</td><td>3.187 / <b>2.134</b></td><td><b>0.082</b> / <b>0.063</b></td><td>0.716</td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>8.752 / 8.371</td><td>0.234 / 0.229</td><td>0.466</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>3.120</b> / 2.840</td><td>0.200 / 0.191</td><td><b>0.878</b></td></tr>
+                  <tr class="dataset-divider"><th scope="rowgroup" rowspan="6">ARCTIC</th><td>DROID-SLAM [24]</td><td>33.845 / 14.256</td><td>1.006 / 0.423</td><td><b>0.964</b></td></tr>
+                  <tr><td>InfiniteVGGT [38]</td><td>16.215 / 12.637</td><td>1.265 / 0.655</td><td>0.284</td></tr>
+                  <tr><td>LingBot-Map [3]</td><td>9.171 / 8.472</td><td>0.980 / 0.717</td><td>0.591</td></tr>
+                  <tr><td>MegaSaM [13]</td><td>8.738 / 5.581</td><td>0.779 / 0.725</td><td>1.956</td></tr>
+                  <tr class="mint-row"><td>MINT w/o stage 2</td><td>3.536 / 3.624</td><td><b>0.251</b> / <b>0.243</b></td><td>0.755</td></tr>
+                  <tr class="mint-row"><td>MINT</td><td><b>2.610</b> / <b>2.600</b></td><td>0.262 / 0.256</td><td>1.112</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <aside class="benchmark-ceiling" aria-labelledby="benchmark-ceiling-title">
+            <header><h3 id="benchmark-ceiling-title" class="lang-en">Limitations and future work</h3><h3 class="lang-zh">局限性与后续工作</h3></header>
+            <ul class="ceiling-conclusion lang-en"><li>Camera-frame hand estimation remains constrained by pseudo-label quality, and the hand prediction heads have not yet been fine-tuned on high-precision data.</li><li>Although the stage-two supervision used to refine camera trajectories is more accurate than data generated by traditional pipelines, residual errors remain relative to ground truth.</li><li>The 32-frame training window may lead to accumulated drift when processing long sequences.</li></ul>
+            <p class="ceiling-future lang-en">Future work will prioritize more accurate, diverse, metric-scale supervision to improve generalization and data-generation quality, bring predictions closer to ground truth, and address trajectory drift in long videos.</p>
+            <ul class="ceiling-conclusion lang-zh"><li>目前，相机坐标系下的手部估计精度仍受伪标签质量制约，手部预测头尚未基于高精度数据进行二次微调。</li><li>第二阶段用于相机轨迹微调的监督数据虽然优于传统管线生成的数据，但与真值之间仍存在一定误差。</li><li>受限于训练阶段采用的 32 帧窗口，模型在处理长序列时仍可能出现累积漂移。</li></ul>
+            <p class="ceiling-future lang-zh">未来将优先扩充更准确、更多样且具有度量尺度的监督数据，进一步提升模型的泛化能力和数据生成质量，使预测结果更加逼近真值，并着力解决长视频中的轨迹漂移问题。</p>
+          </aside>
+
+          <aside class="benchmark-integrity" aria-labelledby="integrity-title">
+            <div>
+              <h3 id="integrity-title" class="lang-en">Integrity statement</h3>
+              <h3 class="lang-zh">诚信声明</h3>
+              <p class="lang-en">Our EgoPipeline and MINT training code support reproducibility. We commit that every metric reported by this project is an authentic result produced under the stated evaluation protocol; we do not alter the original numeric results. To reproduce a baseline or another method's exact values, use that method's official repository and environment. The metric definitions, alignment rules, aggregation logic, and reporting code used by MINT live in <code>eval/model_effect/benchmark/</code> and will be released with the code upon acceptance; the repository link is withheld for double-blind review.</p>
+              <p class="lang-zh">我们的 EgoPipeline 管线与 MINT 训练代码支持复现。我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码位于 <code>eval/model_effect/benchmark/</code>，将随代码在论文录用后一并公开；仓库链接因双盲评审暂不提供。</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="article-section section-shell" id="resources" aria-label="MINT resources">
+          <div class="resource-list"><span class="is-withheld"><b class="lang-en">Paper</b><b class="lang-zh">论文</b><i class="lang-en">under review</i><i class="lang-zh">评审中</i></span><span class="is-withheld"><b class="lang-en">Code</b><b class="lang-zh">代码</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span><span class="is-withheld"><b class="lang-en">Model weights</b><b class="lang-zh">模型权重</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span><span class="is-withheld"><b class="lang-en">Dataset</b><b class="lang-zh">数据集</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span></div>
+        </section>
+
+        <section class="article-section section-shell citation-section" id="citation" aria-labelledby="citation-title">
+          <div class="reading-column"><h2 id="citation-title" class="lang-en">Cite MINT</h2><h2 class="lang-zh">引用 MINT</h2></div>
+          <div class="bibtex-card"><div><span>BIBTEX</span><button type="button" data-copy-bibtex><span class="lang-en">Copy</span><span class="lang-zh">复制</span> <i aria-hidden="true">⧉</i></button></div><pre id="bibtex" tabindex="0" aria-label="BibTeX citation"><code>@misc{anonymous2026mint,
+  title  = {MINT: A Unified Model for World-Space Camera and Hand Motion
+            Estimation from Scalable Egocentric Pipeline Supervision},
+  author = {Anonymous Authors},
+  year   = {2026},
+  note   = {Manuscript under double-blind review}
+}</code></pre></div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer"><div class="footer-inner"><div><b>MINT</b><p class="lang-en">World-space camera and bimanual hand motion.</p><p class="lang-zh">世界坐标系下的相机与双手运动。</p></div><div><span class="lang-en">Anonymous submission</span><span class="lang-zh">匿名投稿</span><a href="#top"><span class="lang-en">Back to top</span><span class="lang-zh">回到顶部</span> ↑</a></div></div></footer>
+    <dialog class="lightbox" data-lightbox><button type="button" data-lightbox-close aria-label="Close image">×</button><img data-lightbox-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E" alt=""></dialog>
+    <div class="copy-toast" data-copy-toast role="status" aria-live="polite" hidden><span class="lang-en">Citation copied</span><span class="lang-zh">引用已复制</span></div>
+    <script src="script.min.js?v=6" defer></script>
+  </body>
+</html>

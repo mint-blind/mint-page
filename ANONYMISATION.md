@@ -37,9 +37,9 @@ code with the same typography and timing:
 - **Title card, 00:12.033-00:19.633** — the credit block reads `Anonymous
   Authors` over `Paper under double-blind review` in place of the seven names
   and five institutions.
-- **Closing page, 02:05.433-02:13.433** — the headline reads `Everything will
-  be open.` and the four destination rows read `released upon acceptance` in
-  place of the project page, repository, model, and dataset URLs.
+- **Closing page, 02:05.433-02:13.433** — the headline reads `Everything is
+  open.` and directly lists the pseudonymous project page, repository, model,
+  and dataset URLs.
 
 The benchmark summary (01:31.433-01:38.432) and detailed-table shots
 (01:38.433-01:54.432) use the latest manuscript values. Their reusable layers
@@ -51,4 +51,4 @@ overlap either anonymity shot, and `film-poster.webp` is sampled at 00:14.500,
 before the credit block fades in, so it is identical in both builds.
 
 Both complete-film assets come from the same refreshed anonymous master: the
-CRF 23 MP4 is 30.9 MiB and the 720p VP9 fallback is 17.6 MiB.
+CRF 23 MP4 is 32.4 MiB and the 720p VP9 fallback is 11.7 MiB.

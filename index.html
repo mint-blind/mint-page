@@ -25,7 +25,7 @@
         "associatedMedia": {
           "@type": "VideoObject",
           "name": "MINT project film",
-          "contentUrl": "assets/media/mint-film-compact.mp4?v=21",
+          "contentUrl": "assets/media/mint-film-compact.mp4?v=23",
           "thumbnailUrl": "assets/media/film-poster.webp"
         }
       }
@@ -76,13 +76,13 @@
           <p class="affiliations lang-zh"><span>论文处于双盲评审中</span></p>
           <div class="hero-actions">
             <span class="button button-secondary is-withheld"><span class="lang-en">Paper — under review</span><span class="lang-zh">论文 — 评审中</span></span>
-            <span class="button button-secondary is-withheld"><span class="lang-en">Code, model, dataset — released upon acceptance</span><span class="lang-zh">代码、模型、数据集 — 录用后发布</span></span>
+            <a class="button button-secondary" href="https://github.com/mint-icra/mint" target="_blank" rel="noreferrer"><span class="lang-en">Code</span><span class="lang-zh">代码</span> <i aria-hidden="true">↗</i></a><a class="button button-secondary" href="https://huggingface.co/mint-icra/mint" target="_blank" rel="noreferrer"><span class="lang-en">Model</span><span class="lang-zh">模型</span> <i aria-hidden="true">↗</i></a><a class="button button-secondary" href="https://huggingface.co/datasets/mint-icra/mint_ego_datasets" target="_blank" rel="noreferrer"><span class="lang-en">Dataset</span><span class="lang-zh">数据集</span> <i aria-hidden="true">↗</i></a>
           </div>
         </header>
 
         <section class="project-film section-shell" id="film" aria-label="MINT film">
           <figure class="main-film">
-            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4?v=21" type="video/mp4"><source src="assets/media/mint-film-720p.webm?v=21" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4?v=21">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4?v=21">下载影片。</a></p></video></div>
+            <div class="main-film-frame"><video id="project-film" data-project-film controls playsinline preload="none" poster="assets/media/film-poster.webp" width="1920" height="1080"><source src="assets/media/mint-film-compact.mp4?v=23" type="video/mp4"><source src="assets/media/mint-film-720p.webm?v=23" type="video/webm"><track kind="chapters" src="assets/media/mint-film-chapters-en.vtt" srclang="en" label="English" default><track kind="chapters" src="assets/media/mint-film-chapters-zh.vtt" srclang="zh" label="中文"><p class="lang-en">Your browser does not support HTML video. <a href="assets/media/mint-film-compact.mp4?v=23">Download the film.</a></p><p class="lang-zh">你的浏览器不支持 HTML 视频。<a href="assets/media/mint-film-compact.mp4?v=23">下载影片。</a></p></video></div>
           </figure>
           <nav class="film-chapters" aria-label="Film chapters">
             <button type="button" class="is-active" data-chapter data-time="0"><b>00:00</b><span class="lang-en">In the wild</span><span class="lang-zh">真实场景</span></button>
@@ -375,14 +375,14 @@
             <div>
               <h3 id="integrity-title" class="lang-en">Integrity statement</h3>
               <h3 class="lang-zh">诚信声明</h3>
-              <p class="lang-en">Our EgoPipeline and MINT training code support reproducibility. We commit that every metric reported by this project is an authentic result produced under the stated evaluation protocol; we do not alter the original numeric results. To reproduce a baseline or another method's exact values, use that method's official repository and environment. The metric definitions, alignment rules, aggregation logic, and reporting code used by MINT live in <code>eval/model_effect/benchmark/</code> and will be released with the code upon acceptance; the repository link is withheld for double-blind review.</p>
-              <p class="lang-zh">我们的 EgoPipeline 管线与 MINT 训练代码支持复现。我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码位于 <code>eval/model_effect/benchmark/</code>，将随代码在论文录用后一并公开；仓库链接因双盲评审暂不提供。</p>
+              <p class="lang-en">Our EgoPipeline and MINT training code support reproducibility. We commit that every metric reported by this project is an authentic result produced under the stated evaluation protocol; we do not alter the original numeric results. To reproduce a baseline or another method's exact values, use that method's official repository and environment. The metric definitions, alignment rules, aggregation logic, and reporting code used by MINT are available for inspection in <a href="https://github.com/mint-icra/mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a>.</p>
+              <p class="lang-zh">我们的 EgoPipeline 管线与 MINT 训练代码支持复现。我们承诺，本项目报告的每一项测试指标均为按照所述评测协议实际运行所得的真实结果，不会对原始数值进行人为修改。如需精确复现其他方法或 baseline 的具体数值，请直接使用对应方法的官方仓库与原始环境。MINT 使用的指标定义、对齐规则、聚合逻辑和报告代码均公开在 <a href="https://github.com/mint-icra/mint/tree/main/eval/model_effect/benchmark" target="_blank" rel="noreferrer"><code>eval/model_effect/benchmark/</code></a> 中，可直接检查具体计算方式。</p>
             </div>
           </aside>
         </section>
 
         <section class="article-section section-shell" id="resources" aria-label="MINT resources">
-          <div class="resource-list"><span class="is-withheld"><b class="lang-en">Paper</b><b class="lang-zh">论文</b><i class="lang-en">under review</i><i class="lang-zh">评审中</i></span><span class="is-withheld"><b class="lang-en">Code</b><b class="lang-zh">代码</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span><span class="is-withheld"><b class="lang-en">Model weights</b><b class="lang-zh">模型权重</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span><span class="is-withheld"><b class="lang-en">Dataset</b><b class="lang-zh">数据集</b><i class="lang-en">upon acceptance</i><i class="lang-zh">录用后发布</i></span></div>
+          <div class="resource-list"><span class="is-withheld"><b class="lang-en">Paper</b><b class="lang-zh">论文</b><i class="lang-en">under review</i><i class="lang-zh">评审中</i></span><a href="https://github.com/mint-icra/mint" target="_blank" rel="noreferrer"><b class="lang-en">Code</b><b class="lang-zh">代码</b><i>↗</i></a><a href="https://huggingface.co/mint-icra/mint" target="_blank" rel="noreferrer"><b class="lang-en">Model weights</b><b class="lang-zh">模型权重</b><i>↗</i></a><a href="https://huggingface.co/datasets/mint-icra/mint_ego_datasets" target="_blank" rel="noreferrer"><b class="lang-en">Dataset</b><b class="lang-zh">数据集</b><i>↗</i></a></div>
         </section>
 
       </article>

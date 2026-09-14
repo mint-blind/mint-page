@@ -29,8 +29,8 @@ Source: the manuscript's own figure set
 Source: the anonymous cut of the project film, 1920 x 1080 at 30 fps, 133.434
 seconds. It follows the open cut apart from two anonymity shots and the
 refreshed benchmark graphics. The title card (00:12.033-00:19.633) names no
-author or institution, and the closing page (02:05.433-02:13.433) promises the
-release instead of listing its four destinations. The benchmark summary at
+author or institution, and the closing page (02:05.433-02:13.433) directly
+lists the pseudonymous project, repository, model, and dataset URLs. The benchmark summary at
 01:31.433-01:38.432 and detailed tables
 at 01:38.433-01:54.432 are regenerated from the latest hand and ARCTIC
 trajectory tables while preserving the original timing and soundtrack. The
@@ -38,8 +38,8 @@ reusable layers come from `tools/render_benchmark_video_layers.py`.
 The second-stage refinement card at 00:53.233-01:00.233 reports RPE-T mean
 `3.536 -> 2.510`, RPE-T median `3.624 -> 2.600`, and arc-length ratio
 `0.755 -> 1.112`.
-`assets/media/mint-film-compact.mp4` is the updated CRF 23 encode (30.9 MiB),
-and `assets/media/mint-film-720p.webm` is the 720p VP9 fallback (17.6 MiB).
+`assets/media/mint-film-compact.mp4` is the updated CRF 23 encode (32.4 MiB),
+and `assets/media/mint-film-720p.webm` is the 720p VP9 fallback (11.7 MiB).
 
 | Website asset | Source interval or frame |
 | --- | --- |

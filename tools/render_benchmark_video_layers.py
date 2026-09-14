@@ -97,7 +97,7 @@ def draw_hand_content() -> Image.Image:
     ]
     highlights = {
         "WiLoR": {7},
-        "MINT": {0, 1, 2},
+        "MINT": {0, 1, 2, 3, 4, 5, 6, 8},
         "MINT + UKF": {0, 1, 2, 3, 4, 5, 6, 8},
     }
     row_centers = [334 + 56 * index for index in range(len(rows))]
@@ -122,7 +122,7 @@ def draw_hand_content() -> Image.Image:
 
     draw.text(
         (110, 1012),
-        "MINT is evaluated zero-shot. Best values are bold; ties are all bolded.",
+        "Best values are bold; MINT is also bold when it beats every non-MINT method.",
         font=FOOTNOTE_FONT,
         fill=(102, 102, 102, 255),
         anchor="lm",

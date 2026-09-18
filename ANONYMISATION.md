@@ -51,4 +51,4 @@ overlap either anonymity shot, and `film-poster.webp` is sampled at 00:14.500,
 before the credit block fades in, so it is identical in both builds.
 
 Both complete-film assets come from the same refreshed anonymous master: the
-CRF 23 MP4 is 32.4 MiB and the 720p VP9 fallback is 11.7 MiB.
+CRF 23 MP4 is 35.9 MiB and the 720p VP9 fallback is 11.7 MiB.
